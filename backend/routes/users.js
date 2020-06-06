@@ -13,7 +13,6 @@ router.route("/").get((req, res) => {
 // POST user to the user database
 router.route('/add').post((req, res) => { 
     const username = req.body.username;
-
     const newUser = new User({username});
 
     newUser.save()
@@ -39,6 +38,7 @@ router.route('/sign-up').post((req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     const user_type = req.body.user_type;
+    const user_number = req.body.phone_number // Adding later
 
     const newUser = new User({username, password, user_type});
     console.log("newUser backend creation", newUser);
