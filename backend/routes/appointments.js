@@ -98,3 +98,51 @@ router.route('/add').post((req, res) => {
         .then(() => res.json('Appointment added!'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+
+// GET All Accepted appointments from Stylist
+router.route('/get-schedule/:name').post((req, res) => {
+    // const stylist_username = req.body.username;
+    // console.log("BACKEND -- ", req.params.name);
+    Appointment.find( { "stylist_username" : req.params.name } )
+        .then ((data => { 
+            console.log(data)
+            res.json(data);
+        }))
+        .catch((err) => res.status(400).json("Error: " + err))
+});
+
+// Send message via twilio 
+router.route('/send-message').post((req, res) => { 
+    console.log("BACKEND --", req.body);
+    const client_username = req.body[0];
+    const message = req.body[1];
+    User.find( { "username": client_username })
+        .then (data => { 
+            const phone_number = data[0].phone_number;
+            
+            client.messages.create({ 
+                body: message,
+                to: phone_number,
+                from: '+12029521470'
+            }).then((message) => {
+                console.log(message);
+                res.json(message);
+            })
+        })
+        .catch((err) => res.status(400).json("Error: " + err))
+});
+
+// GET All Accepted appointments from Client
+router.route('/get-client-schedule/:name').post((req, res) => {
+    // const stylist_username = req.body.username;
+    // console.log("BACKEND -- ", req.params.name);
+    Appointment.find({ "client_username": req.params.name })
+        .then((data => {
+            console.log(data)
+            res.json(data);
+        }))
+        .catch((err) => res.status(400).json("Error: " + err))
+});
+
+
+module.exports = router;
