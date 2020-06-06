@@ -9,3 +9,92 @@ const client = new twilio(accountSid, authToken);
 // DB objects 
 let Appointment = require('../models/appointment.model')
 let User = require('../models/user.model')
+
+// Get appointments of a Stylist
+router.route("/user").post((req, res) => {
+  const currUser = req.body.props;
+  Appointment.find({ stylist_username: currUser, accepted: false })
+    .then((appointments) => res.json(appointments))
+    .catch((err) => res.status(400).json("Error: " + err));
+})
+
+// Get accepted appointments of a client 
+router.route("/client").post((req, res) => {
+  const currUser = req.body.props;
+  Appointment.find({ client_username: currUser, accepted: true })
+    .then((appointments) => res.json(appointments))
+    .catch((err) => res.status(400).json("Error: " + err));
+})
+
+// Stylist accepting an appointment action 
+router.route('/accepted').post((req, res) => { 
+    // console.log("BACKEND accept -- ", req.body);
+    const client_username = req.body.client_username;
+    const stylist_username = req.body.stylist_username;
+    const description = req.body.description;
+    const location = req.body.location;
+    const date = req.body.date;
+    const accepted = true;
+
+    const newAppointment = new Appointment({
+        client_username,
+        stylist_username,
+        description,
+        location,
+        date,
+        accepted
+    });
+
+
+    Appointment.findOneAndDelete(req.body)
+        .then(() => {
+            newAppointment.save()
+                .then(() => res.json('Appointment IS ON SCHEDULE'))
+                .catch(err => res.status(400).json('Error: ' + err))
+        })
+        .catch(err => res.status(400).json('Error: ' + err))
+})
+
+// DELETE an appointment from Stylist side
+router.route('/:id').delete((req, res) => {
+    Appointment.findByIdAndDelete(req.params.id)
+        .then(() => res.json('Appointment deleted.'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+// Adding appointment to stylists accepted appt list 
+router.route('/addAppt').post((req, res) => {
+    // console.log("BACKEND", req.body);
+    const stylist_username = req.body.stylist_username;
+
+    User.find( { "username" : stylist_username } )
+        .then(response => {
+            response[0]["accepted_appts"].push(req.body)
+            response[0].save()
+                .then(() => res.json('Appointment added!'))
+                .catch(err => res.status(400).json('Error: ', err));
+
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+// Adding an appointment from Client side
+router.route('/add').post((req, res) => {
+    const client_username = req.body.client_username;
+    const stylist_username = req.body.stylist_username;
+    const description = req.body.description;
+    const location = req.body.location;
+    const date = req.body.date;
+
+    const newAppointment= new Appointment({
+        client_username,
+        stylist_username,
+        description,
+        location,
+        date
+    });
+
+    newAppointment.save()
+        .then(() => res.json('Appointment added!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
