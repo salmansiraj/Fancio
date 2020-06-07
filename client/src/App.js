@@ -7,6 +7,7 @@ import './App.css';
 // Components
 import Login from "./components/Login";
 import Landing from "./components/Landing";
+import Signup from "./components/Signup";
 
 export default class App extends Component {
 
@@ -18,6 +19,7 @@ export default class App extends Component {
           <br />
           <Route path="/" exact component={Landing} />
           <Route path="/login" exact component={Login} />
+          <Route path="/sign-up" exact component={Signup} />
         </Router>
       </div>
     );
