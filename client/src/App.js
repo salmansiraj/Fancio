@@ -6,6 +6,7 @@ import './App.css';
 
 // Components
 import Login from "./components/Login";
+import Landing from "./components/Landing";
 
 export default class App extends Component {
 
@@ -15,10 +16,10 @@ export default class App extends Component {
         <br />
         <Router>
           <br />
-          <Route path="/" exact component={Login} />
-        
+          <Route path="/" exact component={Landing} />
+          <Route path="/login" exact component={Login} />
         </Router>
       </div>
-  );
+    );
   }
 }
