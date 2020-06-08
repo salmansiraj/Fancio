@@ -6,3 +6,8 @@ Global Dev Challenge Hackathon
 ## Solution 
 
 ## Future Work
+
+## Tech Stack 
+
+
+### Resources Used
