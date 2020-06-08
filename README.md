@@ -11,7 +11,7 @@ Global Dev Challenge Hackathon
 
 
 #### Resources Used
-- Icons Freepik flaticon.com
-- Lucas Bassettis simple-chatbot-app-plugin
+- Freepik icons @flaticon.com
+- Lucas Bassettis: simple-chatbot-app-plugin
 - Twilio SMS API Documentation Code
 
