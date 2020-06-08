@@ -10,4 +10,4 @@ Global Dev Challenge Hackathon
 ## Tech Stack 
 
 
-### Resources Used
+#### Resources Used
