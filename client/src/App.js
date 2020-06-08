@@ -8,8 +8,28 @@ import './App.css';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Signup from "./components/Signup";
+import ClientHomepage from "./components/Client_Components/ClientHomepage";
+import StylistHomepage from "./components/Stylist_Components/StylistHomepage";
+
 
 export default class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: '',
+      password: '',
+      user_type: ''
+    }
+  }
+
+  getUser = (username, password, user_type) => { 
+    this.setState({
+      username: username,
+      password: password,
+      user_type: user_type
+    });
+    // console.log("State changed: ", this.state);
+  }
 
   render() { 
     return (
@@ -18,8 +38,13 @@ export default class App extends Component {
         <Router>
           <br />
           <Route path="/" exact component={Landing} />
+
           <Route path="/login" exact component={Login} />
           <Route path="/sign-up" exact component={Signup} />
+
+          <Route path="/clientHomepage/:name" exact component={ClientHomepage} />
+          <Route path="/stylistHomepage/:name" exact component={StylistHomepage} />
+
         </Router>
       </div>
     );
