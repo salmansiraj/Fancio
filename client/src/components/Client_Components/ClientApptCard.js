@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Card } from 'reactstrap';
 import axios from "axios";
-import calendar from '../assets/calendar.png'
+import calendar from '../../assets/calendar.png'
 
 class ClientApptCard extends Component {
     constructor(props) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ChatBot from "react-simple-chatbot";
+import Chat from "react-simple-chatbot";
 import { ThemeProvider } from "styled-components";
 import axios from 'axios';
 
@@ -78,17 +78,13 @@ export default class ChatBot extends Component {
   sendMessage = () => {
     console.log(this.state.message);
     // Message to send to stylists phone
-    // axios
-    //   .post(
-    //     "http://localhost:5000/appointments/send-message",
-    //     this.state.message
-    //   )
-    //   .then((response) => {
-    //     console.log("Message succcessfully sent");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
+    axios.post("http://localhost:5000/appointments/send-message", this.state.message)   
+      .then((response) => {
+        console.log("Message succcessfully sent");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
     this.setState({ 
       hidden: false
     });
@@ -101,7 +97,7 @@ export default class ChatBot extends Component {
       <div>
         {this.state.hidden === true && (
           <ThemeProvider theme={this.theme}>
-            <ChatBot
+            <Chat
               headerTitle="Messenger Bot"
               recognitionEnable={true}
               steps={this.steps}

@@ -10,7 +10,7 @@ export default class Navbar extends Component {
 
 
     render() {
-        console.log(this.props);
+        console.log(this.props.user);
         return (
             <nav className="navbar navbar-light navbar-expand-lg" style={{ width: "100%" }}>
                 <Link to="/" className="navbar-brand">
@@ -20,12 +20,12 @@ export default class Navbar extends Component {
                 <div className="collpase navbar-collapse">
                     <ul className="navbar-nav mr-auto">
                         <li className="navbar-item">
-                            <Link to={"/stylistHomepage/" + this.props.name} className="nav-link">
+                            <Link to={"/stylistHomepage/" + this.props.user} className="nav-link">
                                 Appointments
                             </Link>
                         </li>
                         <li className="navbar-item">
-                            <Link to={"/create/" + this.props.name} className="nav-link">
+                            <Link to={"/create/" + this.props.user} className="nav-link">
                                 Create Service
                             </Link>
                         </li>

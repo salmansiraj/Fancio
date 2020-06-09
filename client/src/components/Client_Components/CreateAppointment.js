@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import ClientNavbar from "./ClientNavbar";
-import "react-datepicker/dist/react-datepicker.css";
 import service from '../../assets/service.png';
-import DatePicker from 'react-datepicker';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { Card } from 'reactstrap';
 
 export default class CreateAppointment extends Component {
