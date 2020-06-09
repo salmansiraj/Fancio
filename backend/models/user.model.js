@@ -14,6 +14,7 @@ const userSchema = new Schema({
     user_type: { type: String, required: true },
     accepted_appts: { type: Array },
     phone_number: { type: String },
+    url: { type: String }
 }, {
     timestamps: true,
 });
