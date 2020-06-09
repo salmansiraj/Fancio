@@ -51,7 +51,6 @@ export default class App extends Component {
           <Route path="/stylistHomepage/:name" exact component={StylistHomepage} />
 
           <Route path="/create/:name" exact component={CreateService} />
-          <Route path="/sign-up" exact component={Signup} />
 
           <Route path="/create-appointment" exact component={CreateAppointment} />
           <Route path="/get-schedule/:name" exact component={StylistSchedule} />

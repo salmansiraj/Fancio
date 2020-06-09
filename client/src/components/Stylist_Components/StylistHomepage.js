@@ -13,13 +13,14 @@ class StylistHomepage extends Component {
     };
 
 
-    render() {
+    render() {  
+        // console.log(this.currentUser())
         return (
             <Card style={{ borderRadius: "25px" }}>
                 <div className="container">
-                    <StylistNavbar props={this.currentUser()}/>
+                    <StylistNavbar user={this.currentUser()}/>
                     <br />
-                    <StylistList props={this.currentUser()}/>
+                    <StylistList user={this.currentUser()}/>
                 </div>
             </Card>
         );

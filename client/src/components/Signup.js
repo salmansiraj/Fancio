@@ -13,6 +13,7 @@ export default class Signup extends Component {
       username: '',
       password: '',
       user_type: '',
+      phone_number: ''
     };
   }
 
@@ -25,6 +26,12 @@ export default class Signup extends Component {
   onChangePassword = (e) => {
     this.setState({
       password: e.target.value,
+    });
+  };
+
+  onChangePhoneNumber= (e) => {
+    this.setState({
+      phone_number: e.target.value,
     });
   };
 
@@ -68,8 +75,20 @@ export default class Signup extends Component {
           <div>
             <h2 className="text-center">
               <span className="font-weight-bold">
-                <img src={logo} class="text-center" width="250" height="100" alt="" />
-                <img src={barber} style={{ padding: "10px" }} width="100" height="100" alt="" />
+                <img
+                  src={logo}
+                  class="text-center"
+                  width="250"
+                  height="100"
+                  alt=""
+                />
+                <img
+                  src={barber}
+                  style={{ padding: "10px" }}
+                  width="100"
+                  height="100"
+                  alt=""
+                />
                 <br />
                 Sign Up
               </span>
@@ -78,10 +97,10 @@ export default class Signup extends Component {
 
           <FormGroup>
             <Label> Username </Label>
-            <Input 
+            <Input
               required
-              type="username" 
-              placeholder="Username" 
+              type="username"
+              placeholder="Username"
               value={this.state.username}
               onChange={this.onChangeUsername}
             />
@@ -89,19 +108,35 @@ export default class Signup extends Component {
 
           <FormGroup>
             <Label> Password </Label>
-            <Input 
+            <Input
               required
-              type="password" 
-              placeholder="Password" 
+              type="password"
+              placeholder="Password"
               value={this.state.password}
               onChange={this.onChangePassword}
             />
           </FormGroup>
 
           <FormGroup>
-            <h5 className="text-center" style={{ paddingLeft: "10px" }}> Select User Type </h5>
-            <fieldset class="form-check text-center" onChange={this.onChangeUserType}>
+            <Label> Phone Number </Label>
+            <Input
+              required
+              type="phone_number"
+              placeholder="+"
+              value={this.state.phone_number}
+              onChange={this.onChangePhoneNumber}
+            />
+          </FormGroup>
 
+          <FormGroup>
+            <h5 className="text-center" style={{ paddingLeft: "10px" }}>
+              {" "}
+              Select User Type{" "}
+            </h5>
+            <fieldset
+              class="form-check text-center"
+              onChange={this.onChangeUserType}
+            >
               <Label
                 class="form-check-label"
                 for="exampleRadios1"
@@ -127,12 +162,9 @@ export default class Signup extends Component {
                 />
                 Stylist
               </Label>
-
             </fieldset>
           </FormGroup>
-
-          <br />
-          <div className="form-group"> 
+          <div className="form-group">
             <input
               className="btn-lg btn-dark btn-block"
               value="Signup"
