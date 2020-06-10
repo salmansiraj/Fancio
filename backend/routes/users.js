@@ -10,6 +10,16 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// Get specific user
+router.route("/getUser").post((req, res) => {
+  User.find({ username: req.body.user })
+    .then(response => {
+        res.json(response)
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
+})
+
+
 // POST user to the user database
 router.route('/add').post((req, res) => { 
     const username = req.body.username;
@@ -18,7 +28,7 @@ router.route('/add').post((req, res) => {
     newUser.save()
         .then(() => res.json('User added!'))
         .catch(err => res.status(400).json('Error: ' + err));
-});
+})
 
 // GET all users in the database via LOGIN 
 router.route('/login').post((req, res) => { 

@@ -1,8 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import React, { Component } from "react";
 import { Card } from 'reactstrap';
-import ClientNavbar from "./ClientNavbar";
 
+
+import ClientNavbar from "./ClientNavbar";
+import Profile from "../Profile";
 import ServicesList from "./ServicesList";
 
 class ClientHomepage extends Component {
@@ -16,8 +18,8 @@ class ClientHomepage extends Component {
             <Card style={{ borderRadius: "25px" }}>
                 <div className="container">
                     <ClientNavbar />
-                    <br />
-                    <ServicesList props={this.currentUser()}/>
+                    <Profile user={this.currentUser()} />
+                    <ServicesList user={this.currentUser()}/>
                 </div>
             </Card>
         );

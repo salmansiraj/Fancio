@@ -12,10 +12,11 @@ let User = require('../models/user.model')
 
 // Get appointments of a Stylist
 router.route("/user").post((req, res) => {
-  const currUser = req.body.props;
-  Appointment.find({ stylist_username: currUser, accepted: false })
-    .then((appointments) => res.json(appointments))
-    .catch((err) => res.status(400).json("Error: " + err));
+    console.log(req.body.user)
+    const currUser = req.body.user;
+    Appointment.find({ stylist_username: currUser, accepted: false })
+        .then((appointments) => res.json(appointments))
+        .catch((err) => res.status(400).json("Error: " + err));
 })
 
 // Get accepted appointments of a client 

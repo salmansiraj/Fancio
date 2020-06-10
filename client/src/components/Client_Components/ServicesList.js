@@ -12,7 +12,7 @@ const Service = props => (
     <td>{props.service.service_type}</td>
     <td>{"$" + props.service.pay_rate}</td>
     <td>
-      <Link to={"/create-appointment/"}>
+      <Link to={"/create-appointment/" + props.service.username}>
         <Button style={{ backgroundColor: "cadetblue" }}>
             Request
         </Button>

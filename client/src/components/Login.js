@@ -125,14 +125,8 @@ export default class Login extends Component {
               opacity:"1"
             }}
             >Login</Button>
-
-          <div className="text-center pt-3">
-            Or continue with your social account
-          </div>
-
-          <FacebookLoginButton className="mt-3 mb" />
+            
           <br />
-
           <div className="text-center">
             <span className="p-2"> Are you a new user? </span>
             <a href="/sign-up"> Sign Up </a>

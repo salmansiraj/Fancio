@@ -50,12 +50,6 @@ export default class CreateAppointment extends Component {
     })
   }
 
-  onChangeStylistUsername = (e) => {
-    this.setState({
-      stylist_username: e.target.value
-    })
-  }
-
   onChangeDescription = (e) => {
     this.setState({
       description: e.target.value
@@ -78,11 +72,11 @@ export default class CreateAppointment extends Component {
     e.preventDefault();
 
     const appointment = { 
-        client_username: this.state.client_username,
-        stylist_username: this.state.stylist_username,
-        description: this.state.description,
-        location: this.state.location,
-        date: this.state.date
+      client_username: this.state.client_username,
+      stylist_username: this.props.location.pathname.split("/").pop(),
+      description: this.state.description,
+      location: this.state.location,
+      date: this.state.date
     }
 
     console.log("client side", appointment);
@@ -118,23 +112,6 @@ export default class CreateAppointment extends Component {
                     </option>
                   })
 
-                }
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Stylist Username: </label>
-              <select ref="userInput"
-                required
-                className="form-control"
-                value={this.state.stylist_username}
-                onChange={this.onChangeStylistUsername}>
-                {
-                  this.state.stylists.map(function (user) {
-                    return <option
-                      key={user}
-                      value={user}>{user}{}
-                    </option>;
-                  })
                 }
               </select>
             </div>

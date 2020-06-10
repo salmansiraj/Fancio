@@ -6,7 +6,6 @@ import {storage} from '../firebase'
 import { Image, ProgressBar, Form, Button, Col } from "react-bootstrap";
 
 import { FormGroup, Label, Input, Card } from "reactstrap";
-import { FacebookLoginButton } from "react-social-login-buttons";
 import logo from '../assets/loginlogo.png';
 import barber from '../assets/barber.png';
 
@@ -122,7 +121,7 @@ export default class Signup extends Component {
       url: ''
     })
 
-    // window.location = '/login';
+    window.location = '/login';
   };
 
   render() {
