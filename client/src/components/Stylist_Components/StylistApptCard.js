@@ -14,7 +14,7 @@ class StylistApptCard extends Component {
     }
 
     componentDidMount() { 
-        axios.post('http://localhost:5000/appointments/get-schedule/' + this.props.name)
+        axios.post('http://localhost:5000/appointments/get-stylist-schedule/' + this.props.name)
             .then(response => { 
                 this.setState({appointments: response.data });
             })
@@ -55,6 +55,9 @@ class StylistApptCard extends Component {
                                   backgroundColor: "#3b6597",
                                 }}
                               >
+                                <p className="text-center">
+                                    Your Appointment with
+                                </p>
                                 <h2
                                   className="text-center"
                                   style={{ marginBottom: "5px" }}

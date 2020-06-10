@@ -65,7 +65,6 @@ export default class ServicesList extends Component {
   }
 
   submitButton = () => {
-      // console.log(this.props);
       return (
           <Button color="info" onClick={() => { window.location = "/get-client-schedule/" + this.props.user }}>
             <a style={{ color: "white" }}
