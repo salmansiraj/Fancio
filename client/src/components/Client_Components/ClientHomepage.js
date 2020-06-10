@@ -14,12 +14,16 @@ class ClientHomepage extends Component {
     };
 
     render() {
+        const user = this.currentUser()
         return (
             <Card style={{ borderRadius: "25px" }}>
                 <div className="container">
                     <ClientNavbar />
-                    <Profile user={this.currentUser()} />
-                    <ServicesList user={this.currentUser()}/>
+                    <Profile user={user} />
+                    <h5 className="text-center" style={{ color: "#588498", paddingTop: "10px" }}>
+                        Hey {user}!
+                    </h5>
+                    <ServicesList user={user}/>
                 </div>
             </Card>
         );

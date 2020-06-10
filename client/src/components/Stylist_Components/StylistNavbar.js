@@ -4,6 +4,10 @@ import logo from '../../assets/loginlogo.png'
 
 export default class Navbar extends Component {
 
+    currentUser = () => {
+      return window.location.pathname.split("/").pop();
+    };
+
     render() { 
         console.log(this.props)
         return (
@@ -26,14 +30,14 @@ export default class Navbar extends Component {
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
                   <Link
-                    to={"/stylistHomepage/" + this.props.user}
+                    to={"/stylistHomepage/" + this.currentUser()}
                     className="nav-link"
                   >
                     Appointments
                   </Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to={"/create/" + this.props.user} className="nav-link">
+                  <Link to={"/create/" + this.currentUser()} className="nav-link">
                     Create Service
                   </Link>
                 </li>

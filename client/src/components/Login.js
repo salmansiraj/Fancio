@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Button, Form, FormGroup, Label, Input, Card } from 'reactstrap';
-import { FacebookLoginButton } from 'react-social-login-buttons';
 import axios from "axios";
 import '../App.css';
 import logo from '../assets/loginlogo.png';
@@ -88,7 +87,7 @@ export default class Login extends Component {
           <div> 
             <h2 className="text-center">
               <span className="font-weight-bold">
-                <img src={logo} clasName="text-center" width="250" height="100" alt="" />
+                <img src={logo} className="text-center" width="250" height="100" alt="" />
                 <img src={barber} style={{padding: "10px"}} width="100" height="100" alt="" />
                 <br />
                 Login

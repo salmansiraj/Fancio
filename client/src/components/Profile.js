@@ -31,9 +31,6 @@ class Profile extends Component {
                     height: "100px",
                 }}
                 />
-                <h5 style={{ color: "#588498", paddingTop: "5px" }}>
-                Hey {this.props.user}!
-                </h5>
           </div>
         );
     }
