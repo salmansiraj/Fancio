@@ -52,7 +52,7 @@ export default class App extends Component {
 
           <Route path="/create/:name" exact component={CreateService} />
 
-          <Route path="/create-appointment" exact component={CreateAppointment} />
+          <Route path="/create-appointment/:name" exact component={CreateAppointment} />
           <Route path="/get-schedule/:name" exact component={StylistSchedule} />
           <Route path="/get-client-schedule/:name" exact component={ClientSchedule} />
 

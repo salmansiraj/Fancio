@@ -12,7 +12,7 @@ const Service = props => (
     <td>{props.service.service_type}</td>
     <td>{"$" + props.service.pay_rate}</td>
     <td>
-      <Link to={"/create-appointment/"}>
+      <Link to={"/create-appointment/" + props.service.username}>
         <Button style={{ backgroundColor: "cadetblue" }}>
             Request
         </Button>
@@ -65,16 +65,14 @@ export default class ServicesList extends Component {
   }
 
   submitButton = () => {
-      console.log(this.props);
+      // console.log(this.props);
       return (
-        <Link to={"/get-client-schedule/" + this.props.props}>
-          <Button color="info">
+          <Button color="info" onClick={() => { window.location = "/get-client-schedule/" + this.props.user }}>
             <a style={{ color: "white" }}
             >
               My Schedule
-                            </a>
+                </a>
           </Button>
-        </Link>
       );
   }
 

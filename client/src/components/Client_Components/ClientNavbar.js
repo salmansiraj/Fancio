@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/loginlogo.png";
 
 export default class Navbar extends Component {
+
   currentUser = () => {
     return "/clientHomepage/" + window.location.pathname.split("/").pop();
   };
@@ -11,7 +12,7 @@ export default class Navbar extends Component {
     return (
       <nav
         className="navbar navbar-light navbar-expand-lg"
-        style={{ width: "100%" }}
+        style={{ width: "100%"}}
       >
         <Link to="/" className="navbar-brand">
           <img
@@ -31,8 +32,9 @@ export default class Navbar extends Component {
                 Services
               </Link>
             </li>
+
             <li className="navbar-item">
-              <Link to="/" className="nav-link">
+              <Link to="/login" className="nav-link">
                 Logout
               </Link>
             </li>

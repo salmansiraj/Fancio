@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card } from 'reactstrap';
 import axios from "axios";
 import calendar from '../../assets/calendar.png'
+import Profile from '../Profile'
 
 class ClientApptCard extends Component {
     constructor(props) {
@@ -21,34 +22,40 @@ class ClientApptCard extends Component {
             })
     }
 
+
     render() {
         return (
             <div className="container">
                 <h1>
                     <img src={calendar} style={{ marginLeft: "20px", padding: "10px" }} width="100" height="100" alt="" />
                     Upcoming Appointments
-                </h1><br />
+                </h1>
 
                 <div className="container" style={{ display: "flex", flexWrap: "wrap" }}>
                     {
                         this.state.appointments.map(appt => {
                             return (
-                                <Card body style={{
-                                    margin: "10px", borderRadius: "25px", width: "33.33%", backgroundColor: "#3b6597" }}>
-                                    <p className="text-center" style={{ marginBottom: "15px", color: "white" }}>
+
+                                <Card body
+                                    className="shadow p-3 mb-5 bg-white rounded"
+                                    style={{
+                                        margin: "5px",
+                                        borderRadius: "25px",
+                                        width: "33%",
+                                        backgroundColor: "#3b6597",
+                                    }}
+                                >
+                                    <p className="text-center">
                                         Your Appointment with
                                     </p>
-                                    <h1 className="text-center" style={{ marginBottom: "15px", color: "white" }}> 
+                                    <h1 className="text-center" style={{ marginBottom: "15px"}}> 
                                         {appt.stylist_username} 
                                     </h1>
-                                    <Card style={{ borderRadius: "25px" }}>
-                                        <p className="text-center text-muted" style={{ marginTop: "15px" }}>
-                                            <h6 >
-                                                Your Appointment Date
-                                            </h6>
-                                            <p style={{ marginBottom: "15px" }}> {appt.date.substring(0, 10)}  </p>
-
-                                        </p>
+                                    <Profile user={appt.stylist_username}/>
+                                    <br />
+                                    <Card className="text-center text-muted">
+                                        <h6 style={{ marginTop: "15px" }}> Your Appointment Date </h6>
+                                        <p style={{ marginBottom: "15px" }}> {appt.date.substring(0, 10)}  </p>
                                     </Card>
 
                                 </Card>

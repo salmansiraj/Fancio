@@ -35,7 +35,7 @@ class ClientSchedule extends Component {
             <button
               name="yes"
               type="button"
-              class="btn btn-dark"
+              className="btn btn-dark"
               style={{ alignSelf: "flex-end", marginRight: "15px" }}
               onClick={this.onSubmit}
             >
@@ -43,7 +43,7 @@ class ClientSchedule extends Component {
             </button>
             <ClientApptCard name={this.props.match.params.name} />
             <div style={{ alignSelf: "flex-end", marginRight: "5px" }}>
-              {this.state.answer == "yes" && <Chat name={this.props.match.params.name}/> }
+              {this.state.answer === "yes" && <Chat name={this.props.match.params.name}/> }
             </div>
           </Card>
         );

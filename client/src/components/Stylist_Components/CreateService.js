@@ -14,11 +14,13 @@ export default class CreateService extends Component {
       location: '',
       service_type: '',
       pay_rate: '',
-      users: []
+      users: [], 
+      url: ''
     }
   }
 
   componentDidMount() {
+
     axios.get('http://localhost:5000/users/')
       .then(response => {
         if (response.data.length > 0) {
@@ -62,7 +64,7 @@ export default class CreateService extends Component {
     e.preventDefault();
 
     const service = {
-        username: this.state.username,
+        username: this.props.location.pathname.split("/").pop(),
         location: this.state.location,
         service_type: this.state.service_type,
         pay_rate: this.state.pay_rate
@@ -77,7 +79,7 @@ export default class CreateService extends Component {
   }
 
   render() {
-    console.log(this.props.location.pathname.split('/').pop());
+    console.log(this.props.location.pathname.split("/").pop())
     return (
       <Card style={{ borderRadius: "25px" }}>
         <div className="container">
@@ -88,23 +90,6 @@ export default class CreateService extends Component {
             Create New Service
           </h3>
           <form onSubmit={this.onSubmit}>
-            <div className="form-group">
-              <label>My Username: </label>
-              <select ref="userInput"
-                required
-                className="form-control"
-                value={this.state.username}
-                onChange={this.onChangeUsername}>
-                {
-                  this.state.users.map(function (user) {
-                    return <option
-                      key={user}
-                      value={user}>{user}
-                    </option>;
-                  })
-                }
-              </select>
-            </div>
             <div className="form-group">
               <label> Current location: </label>
               <input type="text"

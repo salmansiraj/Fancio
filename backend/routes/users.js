@@ -10,6 +10,16 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 });
 
+// Get specific user
+router.route("/getUser").post((req, res) => {
+  User.find({ username: req.body.user })
+    .then(response => {
+        res.json(response)
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
+})
+
+
 // POST user to the user database
 router.route('/add').post((req, res) => { 
     const username = req.body.username;
@@ -18,7 +28,7 @@ router.route('/add').post((req, res) => {
     newUser.save()
         .then(() => res.json('User added!'))
         .catch(err => res.status(400).json('Error: ' + err));
-});
+})
 
 // GET all users in the database via LOGIN 
 router.route('/login').post((req, res) => { 
@@ -35,12 +45,14 @@ router.route('/login').post((req, res) => {
 
 // POST new user to application from SIGN UP
 router.route('/sign-up').post((req, res) => {
+    console.log(req.body)
     const username = req.body.username;
     const password = req.body.password;
     const user_type = req.body.user_type;
-    const user_number = req.body.phone_number // Adding later
+    const phone_number = "+1" + req.body.phone_number.replace(/-/g, ''); // Adding later
+    const url = req.body.url
 
-    const newUser = new User({username, password, user_type});
+    const newUser = new User({ username, password, user_type, phone_number, url });
     console.log("newUser backend creation", newUser);
 
     if (user_type === 'Client') {
@@ -54,6 +66,8 @@ router.route('/sign-up').post((req, res) => {
             .catch(err => res.status(400).json('Error: ' + err));
     }
 });
+
+
 
 // Standard export
 module.exports = router;

@@ -54,6 +54,10 @@ export default class ClientsList extends Component {
             .catch((err) => console.log(err));
     }
 
+    currentUser = () => {
+      return window.location.pathname.split("/").pop();
+    };
+
     deleteAppointment = (id) => {
         axios.delete('http://localhost:5000/appointments/' + id)
             .then(response => { console.log(response.data) });
@@ -75,18 +79,16 @@ export default class ClientsList extends Component {
     }
 
     submitButton = () => {
-        if (this.state.appointments.length) { 
-            return (
-                <Link to={"/get-schedule/" + this.state.appointments[0]["stylist_username"]}>
-                    <Button color="info">
-                        <a style={{ color: "white" }}
-                        >
-                            My Schedule
-                            </a>
-                    </Button>
-                </Link>
-            );
-        }
+        return (
+            <Link to={"/get-stylist-schedule/" + this.currentUser()}>
+                <Button color="info">
+                    <a style={{ color: "white" }}
+                    >
+                    My Schedule
+                    </a>
+                </Button>
+            </Link>
+        );
     }
 
     render() {

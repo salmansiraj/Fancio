@@ -12,18 +12,20 @@ let User = require('../models/user.model')
 
 // Get appointments of a Stylist
 router.route("/user").post((req, res) => {
-  const currUser = req.body.props;
-  Appointment.find({ stylist_username: currUser, accepted: false })
-    .then((appointments) => res.json(appointments))
-    .catch((err) => res.status(400).json("Error: " + err));
+    console.log(req.body.user)
+    const currUser = req.body.user;
+    Appointment.find({ stylist_username: currUser, accepted: false })
+        .then((appointments) => res.json(appointments))
+        .catch((err) => res.status(400).json("Error: " + err));
 })
 
 // Get accepted appointments of a client 
 router.route("/client").post((req, res) => {
-  const currUser = req.body.props;
-  Appointment.find({ client_username: currUser, accepted: true })
-    .then((appointments) => res.json(appointments))
-    .catch((err) => res.status(400).json("Error: " + err));
+    console.log(req)
+    const currUser = req.body.props;
+    Appointment.find({ client_username: currUser, accepted: true })
+        .then((appointments) => res.json(appointments))
+        .catch((err) => res.status(400).json("Error: " + err));
 })
 
 // Stylist accepting an appointment action 
@@ -100,7 +102,7 @@ router.route('/add').post((req, res) => {
 });
 
 // GET All Accepted appointments from Stylist
-router.route('/get-schedule/:name').post((req, res) => {
+router.route('/get-stylist-schedule/:name').post((req, res) => {
     // const stylist_username = req.body.username;
     // console.log("BACKEND -- ", req.params.name);
     Appointment.find( { "stylist_username" : req.params.name } )
