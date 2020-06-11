@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input, Card } from 'reactstrap';
 import axios from "axios";
 import '../App.css';
 import logo from '../assets/loginlogo.png';
-import barber from '../assets/barber.png';
+import worker from '../assets/worker.png';
 
 
 export default class Login extends Component {
@@ -41,7 +41,7 @@ export default class Login extends Component {
 
     axios.post("http://localhost:5000/users/login", user)
       .then((response) => {
-        console.log("client side: ", response);
+        console.log("worker side: ", response);
         if (response.data.length > 0) {
 
           // console.log("REQUEST ----- ", response.data[0]['user_type'])
@@ -59,13 +59,13 @@ export default class Login extends Component {
           });
 
           // Control where login will go to HERE ---
-          if (userType === 'Client') { 
-            window.location = "/clientHomepage/" + currUser;
-            // return <Redirect from="/" to="/clientHomepage" />
+          if (userType === 'Worker') { 
+            window.location = "/workerHomepage/" + currUser;
+            // return <Redirect from="/" to="/workerHomepage" />
 
           } else { 
-            // - TODO --> Code up STYLIST SIDE 
-            window.location = "/stylistHomepage/" + currUser;
+            // - TODO --> Code up CONTRACTOR SIDE 
+            window.location = "/contractorHomepage/" + currUser;
           }
 
         }
@@ -87,8 +87,8 @@ export default class Login extends Component {
           <div> 
             <h2 className="text-center">
               <span className="font-weight-bold">
-                <img src={logo} className="text-center" width="250" height="100" alt="" />
-                <img src={barber} style={{padding: "10px"}} width="100" height="100" alt="" />
+                <img src={logo} className="text-center" width="270" height="90" alt="" />
+                <img src={worker} style={{padding: "10px"}} width="100" height="100" alt="" />
                 <br />
                 Login
               </span>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import ClientNavbar from "./ClientNavbar";
+import WorkerNavbar from "./WorkerNavbar";
 import service from '../../assets/service.png';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -11,13 +11,13 @@ export default class CreateAppointment extends Component {
     super(props);
 
     this.state = {
-        client_username: '',
-        stylist_username: '',
+        worker_username: '',
+        contractor_username: '',
         description: '',
         location: '',
         date: new Date(),
-        clients: [],
-        stylists: []
+        workers: [],
+        contractors: []
     }
   }
 
@@ -25,16 +25,16 @@ export default class CreateAppointment extends Component {
     axios.get('http://localhost:5000/users/')
       .then(response => {
         if (response.data.length > 0) {
-            const clients = response.data.filter(user => user.user_type === "Client");
-            const stylists = response.data.filter(user => user.user_type === "Stylist");
+            const workers = response.data.filter(user => user.user_type === "Worker");
+            const contractors = response.data.filter(user => user.user_type === "Contractor");
 
             this.setState({
-                clients: clients.map(user => user.username),
-                stylists: stylists.map(user => user.username),
+                workers: workers.map(user => user.username),
+                contractors: contractors.map(user => user.username),
                 // users: response.data.map(user => user.username + " (" + user.user_type + ")"),
                 // username: response.data[0].username
-                client_username: clients[0].username,
-                stylist_username: stylists[0].username
+                worker_username: workers[0].username,
+                contractor_username: contractors[0].username
             })
         }
       })
@@ -43,10 +43,10 @@ export default class CreateAppointment extends Component {
       })
   }
 
-  onChangeClientUsername = (e) => {
+  onChangeWorkerUsername = (e) => {
     console.log(e);
     this.setState({
-    client_username: e.target.value
+    worker_username: e.target.value
     })
   }
 
@@ -72,26 +72,26 @@ export default class CreateAppointment extends Component {
     e.preventDefault();
 
     const appointment = { 
-      client_username: this.state.client_username,
-      stylist_username: this.props.location.pathname.split("/").pop(),
+      worker_username: this.state.worker_username,
+      contractor_username: this.props.location.pathname.split("/").pop(),
       description: this.state.description,
       location: this.state.location,
       date: this.state.date
     }
 
-    console.log("client side", appointment);
+    console.log("worker side", appointment);
 
     axios.post('http://localhost:5000/appointments/add', appointment)
       .then(res => console.log(res.data));
 
-    window.location = '/ClientHomepage/' + this.state.client_username;
+    window.location = '/workerHomepage/' + this.state.worker_username;
   }
 
   render() {
     return (
       <Card style={{ borderRadius: "20px" }}>
         <div className="container">
-          <ClientNavbar />
+          <WorkerNavbar />
           <h3>
             <img src={service} style={{ padding: "10px" }} width="100" height="100" alt="" />
             Create Appointment
@@ -102,13 +102,13 @@ export default class CreateAppointment extends Component {
               <select ref="userInput"
                 required
                 className="form-control"
-                value={this.state.client_username}
-                onChange={this.onChangeClientUsername}>
+                value={this.state.worker_username}
+                onChange={this.onChangeworkerUsername}>
                 {
-                  this.state.clients.map(function (client) {
+                  this.state.workers.map(function (worker) {
                     return <option
-                      key={client}
-                      value={client}>{client}{}
+                      key={worker}
+                      value={worker}>{worker}{}
                     </option>
                   })
 

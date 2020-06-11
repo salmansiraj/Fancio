@@ -19,6 +19,15 @@ router.route("/getUser").post((req, res) => {
     .catch((err) => res.status(400).json("Error: " + err));
 })
 
+// Get Contractor BIO
+router.route("/getBio").post((req, res) => {
+  User.find({ username: req.body.user })
+    .then(response => {
+        res.json(response)
+    })
+    .catch((err) => res.status(400).json("Error: " + err));
+})
+
 
 // POST user to the user database
 router.route('/add').post((req, res) => { 
@@ -51,18 +60,19 @@ router.route('/sign-up').post((req, res) => {
     const user_type = req.body.user_type;
     const phone_number = "+1" + req.body.phone_number.replace(/-/g, ''); // Adding later
     const url = req.body.url
+    const bio = req.body.bio
 
-    const newUser = new User({ username, password, user_type, phone_number, url });
+    const newUser = new User({ username, password, user_type, phone_number, url, bio });
     console.log("newUser backend creation", newUser);
 
-    if (user_type === 'Client') {
+    if (user_type === 'Worker') {
         newUser.save()
-            .then(() => res.json('Client added!'))
+            .then(() => res.json('Worker added!'))
             .catch(err => res.status(400).json('Error: ' + err));
     }
     else {
         newUser.save()
-            .then(() => res.json('Stylist added!'))
+            .then(() => res.json('Contractor added!'))
             .catch(err => res.status(400).json('Error: ' + err));
     }
 });

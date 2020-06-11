@@ -25,11 +25,11 @@ export default class ChatBot extends Component {
         message:
           "Hey " +
           this.props.name +
-          " . Which stylist would you like to message?",
-        trigger: "stylistname",
+          " . Which contractor would you like to message?",
+        trigger: "contractorname",
       },
       {
-        id: "stylistname",
+        id: "contractorname",
         user: true,
         validator: (value) => {
           // const newMessage = this.state.message.push(value);
@@ -77,7 +77,7 @@ export default class ChatBot extends Component {
 
   sendMessage = () => {
     console.log(this.state.message);
-    // Message to send to stylists phone
+    // Message to send to contractors phone
     axios.post("http://localhost:5000/appointments/send-message", this.state.message)   
       .then((response) => {
         console.log("Message succcessfully sent");

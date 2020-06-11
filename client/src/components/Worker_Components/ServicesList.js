@@ -2,25 +2,55 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import hairdresser from '../../assets/hairdresser.png';
+import workerTwo from '../../assets/workerTwo.png';
 import { Button } from 'reactstrap';
+import '../app.css'
+import { Card } from 'react-bootstrap'
+import Profile from '../Profile'
+import SocialButtons from '../SocialButtons'
+import ServicesBio from "./ServicesBio";
 
-const Service = props => (
+const Service = (props) => (
   <tr>
-    <td>{props.service.username}</td>
+    <td>
+      <Button href="#popup1" variant="dark" value = "Result"
+      >
+        {props.service.username}
+      </Button>
+      <div id="popup1" class="overlay">
+        <div class="popup">
+          <Card
+            class="cardProfile"
+            style={{
+              height: "50%",
+              borderBottomLeftRadius: "20%",
+              borderBottomRightRadius: "20%",
+            }}
+          >
+            <h2>
+              <Profile user={props.service.username} />
+              {props.service.username}
+            </h2>
+            <a class="close" href="">
+              &times;
+            </a>
+            <SocialButtons />
+          </Card>
+          <h3 class="text-center"> Bio </h3>
+          <ServicesBio user={props.service.username} />
+        </div>
+      </div>
+    </td>
     <td>{props.service.location}</td>
     <td>{props.service.service_type}</td>
     <td>{"$" + props.service.pay_rate}</td>
     <td>
       <Link to={"/create-appointment/" + props.service.username}>
-        <Button style={{ backgroundColor: "cadetblue" }}>
-            Request
-        </Button>
+        <Button style={{ backgroundColor: "cadetblue" }}>Request</Button>
       </Link>
-
     </td>
   </tr>
-)
+);
 
 export default class ServicesList extends Component {
   constructor(props) {
@@ -28,7 +58,7 @@ export default class ServicesList extends Component {
 
     this.state = {
         services: [],
-        client_appointments: []
+        worker_appointments: []
     };
   }
 
@@ -40,10 +70,10 @@ export default class ServicesList extends Component {
       .catch((err) => console.log(err));
 
       console.log(this.props);
-      // Get Clients Accepted appointments
-    axios.post('http://localhost:5000/appointments/client', this.props)
+      // Get workers Accepted appointments
+    axios.post('http://localhost:5000/appointments/worker', this.props)
       .then(response => {
-        this.setState({ client_appointments: response.data });
+        this.setState({ worker_appointments: response.data });
         console.log(this.state);
       })
       .catch((err) => console.log(err));
@@ -66,7 +96,7 @@ export default class ServicesList extends Component {
 
   submitButton = () => {
       return (
-          <Button color="info" onClick={() => { window.location = "/get-client-schedule/" + this.props.user }}>
+          <Button color="info" onClick={() => { window.location = "/get-worker-schedule/" + this.props.user }}>
             <a style={{ color: "white" }}
             >
               My Schedule
@@ -79,14 +109,14 @@ export default class ServicesList extends Component {
     return (
       <div className="container">
         <h3> 
-          <img src={hairdresser} style={{ padding: "15px" }} width="100" height="100" alt="" />
+          <img src={workerTwo} style={{ padding: "15px" }} width="100" height="100" alt="" />
           All Services
           <span style={{float:"right"}}> {this.submitButton()} </span>
         </h3>
         <table className="table">
           <thead className="thead-light">
             <tr>
-              <th>Stylist Username</th>
+              <th>Contractor Username</th> 
               <th>Location</th>
               <th>Service Type</th>
               <th>Pay Rate</th>

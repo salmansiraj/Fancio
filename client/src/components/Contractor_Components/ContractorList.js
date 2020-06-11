@@ -2,17 +2,17 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
-import hairdresser from '../../assets/hairdresser.png';
+import workerTwo from '../../assets/workerTwo.png';
 import { Button } from 'reactstrap';
 
 const Appointment = props => (
     <tr>
-        <td>{props.appointment.client_username}</td>
+        <td>{props.appointment.worker_username}</td>
         <td>{props.appointment.description}</td>
         <td>{props.appointment.location}</td>
         <td>{props.appointment.date.substring(0, 10)} </td>
         <td>
-            <Link to={"/get-schedule/" + props.appointment.stylist_username}>
+            <Link to={"/get-schedule/" + props.appointment.contractor_username}>
                 <Button style={{ backgroundColor: "cadetblue" }}>
                     <a style={{ color: "white" }}
                         onClick={() => {
@@ -37,7 +37,7 @@ const Appointment = props => (
     </tr>
 )
 
-export default class ClientsList extends Component {
+export default class WorkersList extends Component {
     constructor(props) {
         super(props);
 
@@ -80,7 +80,7 @@ export default class ClientsList extends Component {
 
     submitButton = () => {
         return (
-            <Link to={"/get-stylist-schedule/" + this.currentUser()}>
+            <Link to={"/get-contractor-schedule/" + this.currentUser()}>
                 <Button color="info">
                     <a style={{ color: "white" }}
                     >
@@ -96,14 +96,14 @@ export default class ClientsList extends Component {
         return (
             <div className="container">
                 <h3>
-                    <img src={hairdresser} style={{ padding: "15px" }} width="100" height="100" alt="" />
+                    <img src={workerTwo} style={{ padding: "15px" }} width="100" height="100" alt="" />
                     Requested Appointments
                     <span style={{float:"right"}}> {this.submitButton()} </span>
                 </h3>
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
-                            <th> Client Username </th>
+                            <th> Worker Username </th>
                             <th> Inquiry </th>
                             <th> Location </th>
                             <th> Date </th>

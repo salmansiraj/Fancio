@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Card } from 'reactstrap';
-import ClientNavbar from './ClientNavbar';
-import ClientApptCard from './ClientApptCard';
+import WorkerNavbar from './WorkerNavbar';
+import WorkerApptCard from './WorkerApptCard';
 import Chat from './ChatBot';
 
 
-class ClientSchedule extends Component {
+class WorkerSchedule extends Component {
     constructor(props) { 
         super(props);
 
         this.state = { 
-            client_username: '',
-            stylist_username: '',
+            worker_username: '',
+            contractor_username: '',
             description: '',
             location: '',
             date: new Date(),
@@ -31,7 +31,7 @@ class ClientSchedule extends Component {
     render() {
         return (
           <Card style={{ borderRadius: "25px" }}>
-            <ClientNavbar name={this.props.match.params.name}/>
+            <WorkerNavbar name={this.props.match.params.name}/>
             <button
               name="yes"
               type="button"
@@ -39,9 +39,9 @@ class ClientSchedule extends Component {
               style={{ alignSelf: "flex-end", marginRight: "15px" }}
               onClick={this.onSubmit}
             >
-              Message a Stylist
+              Message a Contractor
             </button>
-            <ClientApptCard name={this.props.match.params.name} />
+            <WorkerApptCard name={this.props.match.params.name} />
             <div style={{ alignSelf: "flex-end", marginRight: "5px" }}>
               {this.state.answer === "yes" && <Chat name={this.props.match.params.name}/> }
             </div>
@@ -50,4 +50,4 @@ class ClientSchedule extends Component {
     }
 }
 
-export default ClientSchedule;
+export default WorkerSchedule;

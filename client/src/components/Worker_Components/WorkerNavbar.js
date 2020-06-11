@@ -2,10 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/loginlogo.png";
 
-export default class Navbar extends Component {
+export default class WorkerNavbar extends Component {
 
   currentUser = () => {
-    return "/clientHomepage/" + window.location.pathname.split("/").pop();
+    return "/workerHomepage/" + window.location.pathname.split("/").pop();
   };
 
   render() {
@@ -18,7 +18,7 @@ export default class Navbar extends Component {
           <img
             src={logo}
             width="200"
-            height="80"
+            height="66.66"
             class="d-inline-block align-top"
             alt=""
             loading="lazy"

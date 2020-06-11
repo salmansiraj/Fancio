@@ -8,13 +8,13 @@ import './App.css';
 import Login from "./components/Login";
 import Landing from "./components/Landing";
 import Signup from "./components/Signup";
-import ClientHomepage from "./components/Client_Components/ClientHomepage";
-import CreateAppointment from "./components/Client_Components/CreateAppointment";
-import ClientSchedule from "./components/Client_Components/ClientSchedule";
+import WorkerHomepage from "./components/Worker_Components/WorkerHomepage";
+import CreateAppointment from "./components/Worker_Components/CreateAppointment";
+import WorkerSchedule from "./components/Worker_Components/WorkerSchedule";
 
-import StylistHomepage from "./components/Stylist_Components/StylistHomepage";
-import CreateService from "./components/Stylist_Components/CreateService"
-import StylistSchedule from "./components/Stylist_Components/StylistSchedule";
+import ContractorHomepage from "./components/Contractor_Components/ContractorHomepage";
+import CreateService from "./components/Contractor_Components/CreateService"
+import ContractorSchedule from "./components/Contractor_Components/ContractorSchedule";
 
 
 export default class App extends Component {
@@ -47,14 +47,14 @@ export default class App extends Component {
           <Route path="/login" exact component={Login} />
           <Route path="/sign-up" exact component={Signup} />
 
-          <Route path="/clientHomepage/:name" exact component={ClientHomepage} />
-          <Route path="/stylistHomepage/:name" exact component={StylistHomepage} />
+          <Route path="/workerHomepage/:name" exact component={WorkerHomepage} />
+          <Route path="/contractorHomepage/:name" exact component={ContractorHomepage} />
 
           <Route path="/create/:name" exact component={CreateService} />
 
           <Route path="/create-appointment/:name" exact component={CreateAppointment} />
-          <Route path="/get-stylist-schedule/:name" exact component={StylistSchedule} />
-          <Route path="/get-client-schedule/:name" exact component={ClientSchedule} />
+          <Route path="/get-contractor-schedule/:name" exact component={ContractorSchedule} />
+          <Route path="/get-worker-schedule/:name" exact component={WorkerSchedule} />
 
 
         </Router>

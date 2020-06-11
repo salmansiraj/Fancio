@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 // Assets
 import logo from "../assets/loginlogo.png";
-import hair_salon from "../assets/hair_salon.jpg";
+import work_site from "../assets/work_site.jpg";
 import { Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -17,8 +17,8 @@ class Landing extends Component {
           <img
             src={logo}
             style={{
-              width: "250px",
-              height: "100px",
+              width: "270px",
+              height: "90px",
               alignSelf: "center",
             }}
             alt=""
@@ -26,16 +26,13 @@ class Landing extends Component {
           <br />
           <div class="card-block text-center">
             <p class="card-text text-muted" style={{ padding: "20px" }}>
-              Fancio connects clients with{" "}
-              <b style={{ color: "#588498" }}> freelance stylists </b> or any
-              type of stylist who wants to promote themselves.
+              Jobot connects skilled
+              <b style={{ color: "#588498" }}> labor workers </b> to
+              <b style={{ color: "#588498" }}> contractors </b>
               <br />
               <br />
-              The goal at <b style={{ color: "#588498" }}>Fancio </b> is to{" "}
-              <b style={{ color: "#588498" }}>
-                bridge a friendly connection between stylists and their clients
-              </b>{" "}
-              , and to provide stylists a platform that is tailored for them
+              The goal at <b style={{ color: "#588498" }}>Jobot </b> is to
+                bridge a friendly connection, and to provide a platform that is tailored for both ends
             </p>
             <Button
               type="button"
@@ -55,7 +52,7 @@ class Landing extends Component {
         </div>
         <div class="card">
           <img
-            src={hair_salon}
+            src={work_site}
             class="text-center"
             style={{
               maxHeight: "100%",
