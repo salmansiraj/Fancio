@@ -21,16 +21,30 @@ class Profile extends Component {
     }
 
     render() {
+        console.log(this.props)
         return (
           <div className="text-center">
-                <Image
-                src={this.state.url}
-                thumbnail
-                style={{
-                    width: "100px",
-                    height: "100px",
-                }}
-                />
+                {this.props.homepage === false ?
+                    (<Image
+                        src={this.state.url}
+                        thumbnail
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            boxShadow: "10px",
+                            filter: "drop-shadow(2px 4px 4px #477884)"
+                        }} />)
+                    :
+                    (<Image
+                        src={this.state.url}
+                        roundedCircle
+                        style={{
+                            width: "100px",
+                            height: "100px",
+                            filter: "drop-shadow(2px 4px 4px #477884)"  
+                        }} />
+                    )
+                }
           </div>
         );
     }

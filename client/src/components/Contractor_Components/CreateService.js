@@ -83,7 +83,7 @@ export default class CreateService extends Component {
     return (
       <Card style={{ borderRadius: "25px" }}>
         <div className="container">
-          <ContractorNavbar name={this.props.location.pathname.split('/').pop()}/>
+          <ContractorNavbar user={this.props.location.pathname.split('/').pop()} homepage={true} />
           <br />
           <h3>
             <img src={service} style={{ padding: "10px" }} width="100" height="100" alt="" />

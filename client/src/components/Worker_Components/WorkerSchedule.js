@@ -32,6 +32,7 @@ class WorkerSchedule extends Component {
         return (
           <Card style={{ borderRadius: "25px" }}>
             <WorkerNavbar name={this.props.match.params.name}/>
+            <br /><br />  
             <button
               name="yes"
               type="button"

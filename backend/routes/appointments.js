@@ -30,13 +30,14 @@ router.route("/worker").post((req, res) => {
 
 // contractor accepting an appointment action 
 router.route('/accepted').post((req, res) => { 
-    // console.log("BACKEND accept -- ", req.body);
+    console.log("BACKEND accept -- \n", req.body);
+    console.log("End ---- \n")
     const worker_username = req.body.worker_username;
     const contractor_username = req.body.contractor_username;
     const description = req.body.description;
     const location = req.body.location;
     const date = req.body.date;
-    const accepted = true;
+    const acceptedVal = true;
 
     const newAppointment = new Appointment({
         worker_username,
@@ -44,7 +45,7 @@ router.route('/accepted').post((req, res) => {
         description,
         location,
         date,
-        accepted
+        accepted: acceptedVal
     });
 
 
@@ -95,9 +96,11 @@ router.route('/add').post((req, res) => {
         location,
         date
     });
-
+    console.log(newAppointment)
     newAppointment.save()
-        .then(() => res.json('Appointment added!'))
+        .then(() => {
+            res.json('Appointment added!')
+        })
         .catch(err => res.status(400).json('Error: ' + err));
 });
 

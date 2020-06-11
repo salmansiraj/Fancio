@@ -84,7 +84,7 @@ export default class CreateAppointment extends Component {
     axios.post('http://localhost:5000/appointments/add', appointment)
       .then(res => console.log(res.data));
 
-    window.location = '/workerHomepage/' + this.state.worker_username;
+    // window.location = '/workerHomepage/' + this.state.worker_username;
   }
 
   render() {
@@ -103,7 +103,7 @@ export default class CreateAppointment extends Component {
                 required
                 className="form-control"
                 value={this.state.worker_username}
-                onChange={this.onChangeworkerUsername}>
+                onChange={this.onChangeWorkerUsername}>
                 {
                   this.state.workers.map(function (worker) {
                     return <option

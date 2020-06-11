@@ -18,11 +18,8 @@ class WorkerHomepage extends Component {
         return (
             <Card style={{ borderRadius: "25px" }}>
                 <div className="container">
-                    <WorkerNavbar />
-                    <Profile user={user} />
-                    <h5 className="text-center" style={{ color: "#588498", paddingTop: "10px" }}>
-                        Hey {user}!
-                    </h5>
+                    <WorkerNavbar user={user} />
+                    <br /><br />
                     <ServicesList user={user}/>
                 </div>
             </Card>
