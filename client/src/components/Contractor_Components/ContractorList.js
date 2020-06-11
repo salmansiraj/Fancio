@@ -4,15 +4,47 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import workerTwo from '../../assets/workerTwo.png';
 import { Button } from 'reactstrap';
+import ServicesBio from "../Worker_Components/ServicesBio";
+import Profile from '../Profile'
+import SocialButtons from '../SocialButtons'
+import { Card } from 'react-bootstrap'
 
 const Appointment = props => (
     <tr>
-        <td>{props.appointment.worker_username}</td>
+        <td>
+            <Button href="#popup1" variant="dark" value="Result"
+            >
+                {props.appointment.worker_username}
+            </Button>
+            <div id="popup1" class="overlay">
+                <div class="popup">
+                    <Card
+                        class="cardProfile"
+                        style={{
+                        height: "50%",
+                        borderBottomLeftRadius: "20%",
+                        borderBottomRightRadius: "20%",
+                        }}
+                    >
+                        <h2>
+                        <Profile user={props.appointment.worker_username} />
+                        {props.appointment.worker_username}
+                        </h2>
+                        <a class="close" href="">
+                        &times;
+                        </a>
+                        <SocialButtons />
+                    </Card>
+                    <h3 class="text-center"> Bio </h3>
+                    <ServicesBio user={props.appointment.worker_username} />
+                </div>
+            </div>
+        </td>
         <td>{props.appointment.description}</td>
         <td>{props.appointment.location}</td>
         <td>{props.appointment.date.substring(0, 10)} </td>
         <td>
-            <Link to={"/get-schedule/" + props.appointment.contractor_username}>
+            <Link to={"/get-contractor-schedule/" + props.appointment.contractor_username}>
                 <Button style={{ backgroundColor: "cadetblue" }}>
                     <a style={{ color: "white" }}
                         onClick={() => {
@@ -69,7 +101,13 @@ export default class WorkersList extends Component {
 
     acceptAppointment = (appointment) => { 
         axios.post('http://localhost:5000/appointments/accepted', appointment)
-            .then(res => { console.log(res.data)});
+            .then(res => { 
+                console.log(res.data)
+            });
+        
+        this.setState({
+            appointments: this.state.appointments.filter(el => el.accepted === false)
+        })
     }
 
     appointmentList = () => {

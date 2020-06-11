@@ -108,7 +108,8 @@ export default class Signup extends Component {
       password: this.state.password, 
       user_type: this.state.user_type,
       phone_number: this.state.phone_number,
-      url: this.state.url
+      url: this.state.url,
+      bio: this.state.bio
     }
 
     if (this.state.url === '') { 
@@ -125,7 +126,8 @@ export default class Signup extends Component {
       password: '', 
       user_type: '',
       image: '',
-      url: ''
+      url: '', 
+      bio: ''
     })
 
     window.location = '/login';

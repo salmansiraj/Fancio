@@ -64,7 +64,7 @@ class ContractorApptCard extends Component {
                                 >
                                   {appt.worker_username}
                                 </h2>
-                                <Profile user={appt.worker_username} />
+                                <Profile user={appt.worker_username} homepage={false} />
                                 <p
                                   className="text-center font-weight-light"
                                   style={{ marginTop: "15px" }}

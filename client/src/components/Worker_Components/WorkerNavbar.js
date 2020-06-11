@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/loginlogo.png";
+import Profile from "../Profile";
 
 export default class WorkerNavbar extends Component {
 
   currentUser = () => {
-    return "/workerHomepage/" + window.location.pathname.split("/").pop();
+    return window.location.pathname.split("/").pop();
   };
 
   render() {
@@ -28,7 +29,7 @@ export default class WorkerNavbar extends Component {
         <div className="collpase navbar-collapse">
           <ul className="navbar-nav mr-auto">
             <li className="navbar-item">
-              <Link to={this.currentUser} className="nav-link">
+              <Link to={"/workerHomepage/" + this.currentUser()} className="nav-link">
                 Services
               </Link>
             </li>
@@ -40,6 +41,7 @@ export default class WorkerNavbar extends Component {
             </li>
           </ul>
         </div>
+        <Profile user={this.currentUser()} homepage={true} />
       </nav>
     );
   }

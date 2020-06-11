@@ -28,7 +28,7 @@ class ContractorSchedule extends Component {
     console.log(this.props)
     return (
       <Card style={{ borderRadius: "25px" }}>
-        <ContractorNavbar name={this.props.match.params.name} />
+        <ContractorNavbar user={this.props.match.params.name} />
         <ContractorApptCard name={this.props.match.params.name} />
       </Card>
     );

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import logo from '../../assets/loginlogo.png'
+import Profile from '../Profile'
 
 export default class Navbar extends Component {
 
@@ -9,7 +10,8 @@ export default class Navbar extends Component {
     };
 
     render() { 
-        console.log(this.props)
+        // console.log(this.props)
+        // console.log(this.props.homepage)
         return (
           <nav
             className="navbar navbar-light navbar-expand-lg"
@@ -52,6 +54,7 @@ export default class Navbar extends Component {
                 <li className="navbar-item"></li>
               </ul>
             </div>
+            <Profile user={this.props.user} homepage={this.props.homepage} />
           </nav>
         );
     }

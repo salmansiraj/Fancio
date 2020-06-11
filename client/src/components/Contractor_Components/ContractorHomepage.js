@@ -18,8 +18,8 @@ class ContractorHomepage extends Component {
         return (
           <Card style={{ borderRadius: "25px" }}>
             <div className="container">
-              <ContractorNavbar user={this.currentUser()} />
-              <Profile user={this.currentUser()} />
+              <ContractorNavbar user={this.currentUser()} homepage={true} />
+              <br /><br />
               <ContractorList user={this.currentUser()} />
             </div>
           </Card>
