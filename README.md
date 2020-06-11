@@ -1,5 +1,5 @@
 # Fancio
-Global Dev Challenge Hackathon
+*Global Dev Challenge Hackathon*
 
 ## Problem 
 
