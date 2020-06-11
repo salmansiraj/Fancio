@@ -3,7 +3,7 @@ import axios from 'axios';
 import ContractorNavbar from "./ContractorNavbar";
 import "react-datepicker/dist/react-datepicker.css";
 import service from '../../assets/service.png';
-import { Card } from 'reactstrap';
+import { Card, Button } from 'reactstrap';
 
 export default class CreateService extends Component {
   constructor(props) {
@@ -85,10 +85,10 @@ export default class CreateService extends Component {
         <div className="container">
           <ContractorNavbar user={this.props.location.pathname.split('/').pop()} homepage={true} />
           <br />
-          <h3>
+          <h2 style={{ color: "#477884" }}>
             <img src={service} style={{ padding: "10px" }} width="100" height="100" alt="" />
             Create New Service
-          </h3>
+          </h2>
           <form onSubmit={this.onSubmit}>
             <div className="form-group">
               <label> Current location: </label>
@@ -122,7 +122,9 @@ export default class CreateService extends Component {
             </div>
 
             <div className="form-group">
-              <input type="submit" value="Create Service" className="btn btn-primary" />
+              <Button type="submit" value="Create Service" style={{ backgroundColor: "steelblue" }} >
+              Create Service
+            </Button>
             </div>
           </form>
         </div>

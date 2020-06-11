@@ -13,10 +13,10 @@ import ServicesBio from "./ServicesBio";
 const Service = (props) => (
   <tr>
     <td>
-      <Button href="#popup1" variant="dark" value = "Result"
+      <a href="#popup1" value="Result" style={{color: "cadetblue"}}
       >
-        {props.service.username}
-      </Button>
+         {props.service.username}
+      </a>
       <div id="popup1" class="overlay">
         <div class="popup">
           <Card
@@ -46,7 +46,7 @@ const Service = (props) => (
     <td>{"$" + props.service.pay_rate}</td>
     <td>
       <Link to={"/create-appointment/" + props.service.username}>
-        <Button style={{ backgroundColor: "cadetblue" }}>Request</Button>
+        <Button style={{ backgroundColor: "steelblue" }}>Request</Button>
       </Link>
     </td>
   </tr>
@@ -96,11 +96,8 @@ export default class ServicesList extends Component {
 
   submitButton = () => {
       return (
-          <Button color="info" onClick={() => { window.location = "/get-worker-schedule/" + this.props.user }}>
-            <a style={{ color: "white" }}
-            >
+          <Button style={{ backgroundColor: "steelblue"}} onClick={() => { window.location = "/get-worker-schedule/" + this.props.user }}>
               My Schedule
-                </a>
           </Button>
       );
   }
@@ -108,7 +105,7 @@ export default class ServicesList extends Component {
   render() {
     return (
       <div className="container">
-        <h3> 
+        <h3 style={{ color: "#477884" }}> 
           <img src={workerTwo} style={{ padding: "15px" }} width="100" height="100" alt="" />
           All Services
           <span style={{float:"right"}}> {this.submitButton()} </span>

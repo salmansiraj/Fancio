@@ -119,9 +119,10 @@ export default class Login extends Component {
 
           <br />
           <Button 
-            className="btn-lg btn-dark btn-block"
+            className="btn-lg btn-block"
             style={{
-              opacity:"1"
+              opacity:"1",
+              backgroundColor: "#477884"
             }}
             >Login</Button>
             

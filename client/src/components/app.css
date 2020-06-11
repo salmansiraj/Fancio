@@ -9,6 +9,11 @@
   text-align: center;
 }
 
+.table .thead-light th {
+    color: #477884;
+    border-color: lightsteelblue;
+}
+
 .button {
   font-size: 1em;
   padding: 10px;
