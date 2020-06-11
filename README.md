@@ -16,5 +16,5 @@
 - Lucas Bassettis: [simple-chatbot-app-plugin](https://lucasbassetti.com.br/react-simple-chatbot/)
 - [Twilio SMS API](https://twilio.com) Documentation Code
 - [GitGuardian](https://gitguardian.com/) for security checks
-- [Kanban Board](https://github.com/salmansiraj/Fancio/projects/1) via Github Projects
+- [My Kanban Board](https://github.com/salmansiraj/Fancio/projects/1) via Github Projects to track progress
 - Heroku for deployment
