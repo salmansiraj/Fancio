@@ -17,3 +17,4 @@
 - [Twilio SMS API](https://twilio.com) Documentation Code
 - [GitGuardian](https://gitguardian.com/) for security checks
 - [Kanban Board](https://github.com/salmansiraj/Fancio/projects/1) via Github Projects
+- Heroku for deployment
