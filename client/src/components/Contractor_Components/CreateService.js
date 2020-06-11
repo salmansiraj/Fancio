@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import StylistNavbar from "./StylistNavbar";
+import ContractorNavbar from "./ContractorNavbar";
 import "react-datepicker/dist/react-datepicker.css";
 import service from '../../assets/service.png';
 import { Card } from 'reactstrap';
@@ -70,12 +70,12 @@ export default class CreateService extends Component {
         pay_rate: this.state.pay_rate
     }
 
-    console.log("client side", service);
+    console.log("worker side", service);
 
     axios.post('http://localhost:5000/services/add', service)
       .then(res => console.log(res.data));
 
-    window.location = '/StylistHomepage/' + this.state.username;
+    window.location = '/contractorHomepage/' + this.state.username;
   }
 
   render() {
@@ -83,7 +83,7 @@ export default class CreateService extends Component {
     return (
       <Card style={{ borderRadius: "25px" }}>
         <div className="container">
-          <StylistNavbar name={this.props.location.pathname.split('/').pop()}/>
+          <ContractorNavbar name={this.props.location.pathname.split('/').pop()}/>
           <br />
           <h3>
             <img src={service} style={{ padding: "10px" }} width="100" height="100" alt="" />

@@ -3,10 +3,10 @@ import React, { Component } from "react";
 import { Card } from 'reactstrap';
 
 import Profile from '../Profile'
-import StylistNavbar from "./StylistNavbar";
-import StylistList from "./StylistList";
+import ContractorNavbar from "./ContractorNavbar";
+import ContractorList from "./ContractorList";
 
-class StylistHomepage extends Component {
+class ContractorHomepage extends Component {
 
     currentUser = () => {
         return window.location.pathname.split("/").pop();
@@ -18,13 +18,13 @@ class StylistHomepage extends Component {
         return (
           <Card style={{ borderRadius: "25px" }}>
             <div className="container">
-              <StylistNavbar user={this.currentUser()} />
+              <ContractorNavbar user={this.currentUser()} />
               <Profile user={this.currentUser()} />
-              <StylistList user={this.currentUser()} />
+              <ContractorList user={this.currentUser()} />
             </div>
           </Card>
         );
     }
 }
 
-export default StylistHomepage;
+export default ContractorHomepage;

@@ -4,7 +4,7 @@ import axios from "axios";
 import calendar from '../../assets/calendar.png'
 import Profile from '../Profile'
 
-class ClientApptCard extends Component {
+class WorkerApptCard extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -13,7 +13,7 @@ class ClientApptCard extends Component {
     }
 
     componentDidMount() {
-        axios.post('http://localhost:5000/appointments/get-client-schedule/' + this.props.name)
+        axios.post('http://localhost:5000/appointments/get-worker-schedule/' + this.props.name)
             .then(response => {
                 this.setState({ appointments: response.data });
             })
@@ -49,9 +49,9 @@ class ClientApptCard extends Component {
                                         Your Appointment with
                                     </p>
                                     <h1 className="text-center" style={{ marginBottom: "15px"}}> 
-                                        {appt.stylist_username} 
+                                        {appt.contractor_username} 
                                     </h1>
-                                    <Profile user={appt.stylist_username}/>
+                                    <Profile user={appt.contractor_username}/>
                                     <br />
                                     <Card className="text-center text-muted">
                                         <h6 style={{ marginTop: "15px" }}> Your Appointment Date </h6>
@@ -69,4 +69,4 @@ class ClientApptCard extends Component {
     }
 }
 
-export default ClientApptCard;
+export default WorkerApptCard;

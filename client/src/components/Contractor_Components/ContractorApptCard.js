@@ -4,7 +4,7 @@ import axios from "axios";
 import calendar from '../../assets/calendar.png'
 import Profile from "../Profile";
 
-class StylistApptCard extends Component {
+class ContractorApptCard extends Component {
     constructor(props) { 
         super(props);
         this.state = { 
@@ -14,7 +14,7 @@ class StylistApptCard extends Component {
     }
 
     componentDidMount() { 
-        axios.post('http://localhost:5000/appointments/get-stylist-schedule/' + this.props.name)
+        axios.post('http://localhost:5000/appointments/get-contractor-schedule/' + this.props.name)
             .then(response => { 
                 this.setState({appointments: response.data });
             })
@@ -62,9 +62,9 @@ class StylistApptCard extends Component {
                                   className="text-center"
                                   style={{ marginBottom: "5px" }}
                                 >
-                                  {appt.client_username}
+                                  {appt.worker_username}
                                 </h2>
-                                <Profile user={appt.client_username} />
+                                <Profile user={appt.worker_username} />
                                 <p
                                   className="text-center font-weight-light"
                                   style={{ marginTop: "15px" }}
@@ -94,4 +94,4 @@ class StylistApptCard extends Component {
     }
 }
 
-export default StylistApptCard;
+export default ContractorApptCard;

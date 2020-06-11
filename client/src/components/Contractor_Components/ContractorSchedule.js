@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { Card } from "reactstrap";
-import StylistNavbar from "./StylistNavbar";
-import StylistApptCard from "./StylistApptCard";
+import ContractorNavbar from "./ContractorNavbar";
+import ContractorApptCard from "./ContractorApptCard";
 
-class StylistSchedule extends Component {
+class ContractorSchedule extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      client_username: "",
-      stylist_username: "",
+      worker_username: "",
+      contractor_username: "",
       description: "",
       location: "",
       date: new Date(),
@@ -28,11 +28,11 @@ class StylistSchedule extends Component {
     console.log(this.props)
     return (
       <Card style={{ borderRadius: "25px" }}>
-        <StylistNavbar name={this.props.match.params.name} />
-        <StylistApptCard name={this.props.match.params.name} />
+        <ContractorNavbar name={this.props.match.params.name} />
+        <ContractorApptCard name={this.props.match.params.name} />
       </Card>
     );
   }
 }
 
-export default StylistSchedule;
+export default ContractorSchedule;

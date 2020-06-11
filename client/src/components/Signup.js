@@ -7,7 +7,7 @@ import { Image, ProgressBar, Form, Button, Col } from "react-bootstrap";
 
 import { FormGroup, Label, Input, Card } from "reactstrap";
 import logo from '../assets/loginlogo.png';
-import barber from '../assets/barber.png';
+import worker from '../assets/worker.png';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -21,6 +21,7 @@ export default class Signup extends Component {
       phone_number: "",
       image: null,
       url: '',
+      bio: '',
       progress: 0
     };
   }
@@ -85,6 +86,12 @@ export default class Signup extends Component {
     });
   };
 
+  onChangeBio = (e) => {
+    this.setState({
+      bio: e.target.value
+    });
+  };
+
 
 
   onChangeUserType = (e) => {
@@ -138,12 +145,12 @@ export default class Signup extends Component {
                 <img
                   src={logo}
                   class="text-center"
-                  width="250"
-                  height="100"
+                  width="270"
+                  height="90"
                   alt=""
                 />
                 <img
-                  src={barber}
+                  src={worker}
                   style={{ padding: "10px" }}
                   width="100"
                   height="100"
@@ -155,6 +162,29 @@ export default class Signup extends Component {
             </h2>
           </div>
           <br />
+          <Form.Row>
+            <Col>
+              <h6>Username</h6>
+              <Input
+                required
+                type="username"
+                value={this.state.username}
+                onChange={this.onChangeUsername}
+              />
+            </Col>
+            <Col>
+              <h6> Password </h6>
+              <Input
+                required
+                type="password"
+                placeholder="••••••"
+                value={this.state.password}
+                onChange={this.onChangePassword}
+              />
+            </Col>
+          </Form.Row>
+          <br />
+
           <Form.Row style={{ margin: "10px" }}>
             <Col style={{ textAlign: "-webkit-center" }}>
               <h6> Profile Picture </h6>
@@ -181,41 +211,31 @@ export default class Signup extends Component {
                 />
               )}
             </Col>
-          </Form.Row>
-          <Form.Row>
             <Col>
-              <h6>Username</h6>
-              <Input
-                required
-                type="username"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-              />
-            </Col>
-            <Col>
-              <h6> Password </h6>
-              <Input
-                required
-                type="password"
-                placeholder="••••••"
-                value={this.state.password}
-                onChange={this.onChangePassword}
-              />
+                <Col>
+                  <h6> Bio </h6>
+                  <Input
+                    required
+                    type="textarea"
+                    value={this.state.bio}
+                    onChange={this.onChangeBio}
+                    style={{ height:"100px"}}
+                  />
+                </Col>
+                <br />
+                <Col>
+                  <h6> Phone Number </h6>
+                  <Input
+                    required
+                    type="phone_number"
+                    placeholder="415-555-5555"
+                    value={this.state.phone_number}
+                    onChange={this.onChangePhoneNumber}
+                  />
+                </Col>
             </Col>
           </Form.Row>
           <br />
-
-          <FormGroup>
-            <h6> Phone Number </h6>
-            <Input
-              required
-              type="phone_number"
-              placeholder="415-555-5555"
-              value={this.state.phone_number}
-              onChange={this.onChangePhoneNumber}
-            />
-          </FormGroup>
-
           <FormGroup>
             <h5 className="text-center" style={{ paddingLeft: "10px" }}>
               {" "}
@@ -233,22 +253,22 @@ export default class Signup extends Component {
                 <input
                   class="form-check-input"
                   type="radio"
-                  value="Client"
-                  checked={this.state.user_type === "Client"}
+                  value="Worker"
+                  checked={this.state.user_type === "Worker"}
                   required
                 />
-                Client
+                Worker
               </Label>
 
               <Label class="form-check-label" for="exampleRadios2">
                 <input
                   class="form-check-input"
                   type="radio"
-                  value="Stylist"
+                  value="Contractor"
                   style={{ paddingLeft: "30px" }}
-                  checked={this.state.user_type === "Stylist"}
+                  checked={this.state.user_type === "Contractor"}
                 />
-                Stylist
+                Contractor
               </Label>
             </fieldset>
           </FormGroup>

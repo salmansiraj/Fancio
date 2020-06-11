@@ -3,11 +3,11 @@ import React, { Component } from "react";
 import { Card } from 'reactstrap';
 
 
-import ClientNavbar from "./ClientNavbar";
+import WorkerNavbar from "./WorkerNavbar";
 import Profile from "../Profile";
 import ServicesList from "./ServicesList";
 
-class ClientHomepage extends Component {
+class WorkerHomepage extends Component {
 
     currentUser = () => { 
         return window.location.pathname.split("/").pop();
@@ -18,7 +18,7 @@ class ClientHomepage extends Component {
         return (
             <Card style={{ borderRadius: "25px" }}>
                 <div className="container">
-                    <ClientNavbar />
+                    <WorkerNavbar />
                     <Profile user={user} />
                     <h5 className="text-center" style={{ color: "#588498", paddingTop: "10px" }}>
                         Hey {user}!
@@ -30,4 +30,4 @@ class ClientHomepage extends Component {
     }
 }
 
-export default ClientHomepage;
+export default WorkerHomepage;

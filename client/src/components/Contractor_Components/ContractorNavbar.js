@@ -19,7 +19,7 @@ export default class Navbar extends Component {
               <img
                 src={logo}
                 width="200"
-                height="80"
+                height="66.66"
                 class="d-inline-block align-top"
                 alt=""
                 loading="lazy"
@@ -30,14 +30,17 @@ export default class Navbar extends Component {
               <ul className="navbar-nav mr-auto">
                 <li className="navbar-item">
                   <Link
-                    to={"/stylistHomepage/" + this.currentUser()}
+                    to={"/contractorHomepage/" + this.currentUser()}
                     className="nav-link"
                   >
                     Appointments
                   </Link>
                 </li>
                 <li className="navbar-item">
-                  <Link to={"/create/" + this.currentUser()} className="nav-link">
+                  <Link
+                    to={"/create/" + this.currentUser()}
+                    className="nav-link"
+                  >
                     Create Service
                   </Link>
                 </li>
