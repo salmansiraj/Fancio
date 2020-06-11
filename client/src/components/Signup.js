@@ -275,11 +275,15 @@ export default class Signup extends Component {
             </fieldset>
           </FormGroup>
           <div className="form-group">
-            <input
-              className="btn-lg btn-dark btn-block"
-              value="Signup"
-              type="submit"
-            />
+            <Button
+              className="btn-lg btn-block"
+              style={{
+                opacity: "1",
+                backgroundColor: "#477884"
+              }}
+            >
+              Signup
+            </Button>
           </div>
 
           <div className="text-center pt-3">

@@ -26,10 +26,10 @@ class WorkerApptCard extends Component {
     render() {
         return (
             <div className="container">
-                <h1>
+                <h2 style={{ color: "#477884" }}>
                     <img src={calendar} style={{ marginLeft: "20px", padding: "10px" }} width="100" height="100" alt="" />
                     Upcoming Appointments
-                </h1>
+                </h2>
 
                 <div className="container" style={{ display: "flex", flexWrap: "wrap" }}>
                     {
@@ -41,7 +41,7 @@ class WorkerApptCard extends Component {
                                     style={{
                                         margin: "5px",
                                         borderRadius: "25px",
-                                        width: "33%",
+                                        maxWidth: "33%",
                                         backgroundColor: "#3b6597",
                                     }}
                                 >

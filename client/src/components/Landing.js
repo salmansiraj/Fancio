@@ -14,6 +14,7 @@ class Landing extends Component {
     return (
       <div class="card-group">
         <div class="card">
+          <br />
           <img
             src={logo}
             style={{
@@ -26,13 +27,14 @@ class Landing extends Component {
           <br />
           <div class="card-block text-center">
             <p class="card-text text-muted" style={{ padding: "20px" }}>
-              Jobot connects skilled
+              Fancio connects skilled
               <b style={{ color: "#588498" }}> labor workers </b> to
               <b style={{ color: "#588498" }}> contractors </b>
               <br />
               <br />
-              The goal at <b style={{ color: "#588498" }}>Jobot </b> is to
-                bridge a friendly connection, and to provide a platform that is tailored for both ends
+              The goal at <b style={{ color: "#588498" }}>Fancio </b> is to
+                bridge a friendly connection, and to provide a <b style={{ color: "#588498" }}> platform tailored  </b>
+                for those struggling in the intensive labor industry
             </p>
             <Button
               type="button"

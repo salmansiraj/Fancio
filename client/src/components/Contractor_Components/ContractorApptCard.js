@@ -37,10 +37,11 @@ class ContractorApptCard extends Component {
     render() {
         return (
             <div className="container">
-                <h1> 
+                <br />
+                <h2> 
                     <img src={calendar} style={{ marginLeft: "20px", padding: "10px" }} width="100" height="100" alt="" />
                     My Schedule 
-                </h1><br />
+                </h2>
 
                 <div className="container" style={{display:"flex", flexWrap: "wrap"}}> 
                     {

@@ -32,12 +32,12 @@ class WorkerSchedule extends Component {
         return (
           <Card style={{ borderRadius: "25px" }}>
             <WorkerNavbar name={this.props.match.params.name}/>
-            <br /><br />  
+            <br />
             <button
               name="yes"
               type="button"
-              className="btn btn-dark"
-              style={{ alignSelf: "flex-end", marginRight: "15px" }}
+              className="btn btn-info"
+              style={{ alignSelf: "flex-end", marginRight: "15px", backgroundColor:"steelblue" }}
               onClick={this.onSubmit}
             >
               Message a Contractor

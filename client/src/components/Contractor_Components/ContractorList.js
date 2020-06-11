@@ -12,7 +12,7 @@ import { Card } from 'react-bootstrap'
 const Appointment = props => (
     <tr>
         <td>
-            <Button href="#popup1" variant="dark" value="Result"
+            <Button href="#popup1" value="Result" style={{ backgroundColor: "steelblue"}}
             >
                 {props.appointment.worker_username}
             </Button>
@@ -119,11 +119,8 @@ export default class WorkersList extends Component {
     submitButton = () => {
         return (
             <Link to={"/get-contractor-schedule/" + this.currentUser()}>
-                <Button color="info">
-                    <a style={{ color: "white" }}
-                    >
+                <Button style={{ backgroundColor: "steelblue" }}>
                     My Schedule
-                    </a>
                 </Button>
             </Link>
         );
@@ -133,7 +130,7 @@ export default class WorkersList extends Component {
         // console.log(this.props.props);
         return (
             <div className="container">
-                <h3>
+                <h3 style={{ color: "#477884"}}>
                     <img src={workerTwo} style={{ padding: "15px" }} width="100" height="100" alt="" />
                     Requested Appointments
                     <span style={{float:"right"}}> {this.submitButton()} </span>
