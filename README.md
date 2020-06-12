@@ -11,6 +11,8 @@
    This is why Fanci was developed. Fanci is a web app that **CONNECTS labor workers with contractors** looking for workers to help finish the job. This bridge between workers and contractors allows a *seamless and friendly bridge of connection* and provides both ends to have a *platform that is tailored for them* unlike other services websites (like Fiverr, Upwork, Craigslist) where the target audience is extremely broad and difficult to land a gig.
 
 ## Future Work
+   - Work on signup screening process to verify user skills/credentials
+   - Work on info/progress page for immigrant workers to track progress on legal paperwork
 
 ## Tech Stack | Design
 <img width="612" alt="fancio_arch" src="https://user-images.githubusercontent.com/34731628/84442586-ee3fd580-ac0b-11ea-9c53-7897b9a35b36.png">
