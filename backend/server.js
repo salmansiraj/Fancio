@@ -14,7 +14,7 @@ app.use(cors())
 app.use(express.json())
 
 // Input mongoClusterURL from ATLAS to connect 
-mongoose.connect(process.env.ATLAS_URI, {
+mongoose.connect(process.env.MONGODB_URI || process.env.ATLAS_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
