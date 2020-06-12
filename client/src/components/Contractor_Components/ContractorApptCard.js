@@ -43,7 +43,7 @@ class ContractorApptCard extends Component {
                     My Schedule 
                 </h2>
 
-                <div className="container" style={{display:"flex", flexWrap: "wrap"}}> 
+                <div className="container" style={{display:"flex", flexWrap: "wrap", justifyContent: "center"}}> 
                     {
                         this.state.appointments.map(appt => {
                             return (
@@ -52,7 +52,7 @@ class ContractorApptCard extends Component {
                                 style={{
                                   margin: "5px",
                                   borderRadius: "25px",
-                                  width: "33%",
+                                  width: "30%",
                                   backgroundColor: "#3b6597",
                                 }}
                               >

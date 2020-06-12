@@ -4,7 +4,7 @@ import WorkerNavbar from "./WorkerNavbar";
 import service from '../../assets/service.png';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { Card } from 'reactstrap';
+import { Card, Button } from 'reactstrap';
 
 export default class CreateAppointment extends Component {
   constructor(props) {
@@ -84,7 +84,7 @@ export default class CreateAppointment extends Component {
     axios.post('http://localhost:5000/appointments/add', appointment)
       .then(res => console.log(res.data));
 
-    // window.location = '/workerHomepage/' + this.state.worker_username;
+    window.location = '/workerHomepage/' + this.state.worker_username;
   }
 
   render() {
@@ -144,7 +144,10 @@ export default class CreateAppointment extends Component {
                 </div>
             </div>
             <div className="form-group">
-              <input type="submit" value="Setup Appointment" className="btn btn-primary" />
+                <br />
+                <Button className="text-center" style={{backgroundColor: "steelblue"}}>
+                  Request Appointment
+                </Button>
             </div>
           </form>
         </div>
