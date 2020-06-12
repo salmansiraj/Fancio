@@ -5,7 +5,7 @@ const path = require('path')
 // Using mongoose to help connect to MongoDB
 const mongoose = require('mongoose')
 
-require('dotenv').config({ path: '.env'})
+require('dotenv').config()
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -38,10 +38,6 @@ app.use("/services", servicesRouter);
 app.use("/appointments", appointmentsRouter);
 
 const router = require("express").Router()
-
-router.route('/').get((req, res) => {
-    res.json("hello")
-})
 
 if (process.env.NODE_ENV === 'production') { 
     app.use(express.static(path.join(__dirname, '../client/build')))
