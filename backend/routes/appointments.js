@@ -126,7 +126,7 @@ router.route('/send-message').post((req, res) => {
         .then (data => { 
             const phone_number = data[0].phone_number;
             
-            worker.messages.create({ 
+            client.messages.create({ 
                 body: message,
                 to: phone_number,
                 from: '+12029521470'
