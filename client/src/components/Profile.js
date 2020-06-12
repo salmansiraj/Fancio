@@ -31,7 +31,6 @@ class Profile extends Component {
                         style={{
                             width: "100px",
                             height: "100px",
-                            boxShadow: "10px",
                             filter: "drop-shadow(2px 4px 4px #477884)"
                         }} />)
                     :

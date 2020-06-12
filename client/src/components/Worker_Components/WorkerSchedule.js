@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { Card } from 'reactstrap';
+import Image from 'react-bootstrap/Image'
 import WorkerNavbar from './WorkerNavbar';
 import WorkerApptCard from './WorkerApptCard';
 import Chat from './ChatBot';
+import '../app.css'
+import chatImage from '../../assets/chatImage.png'
 
 
 class WorkerSchedule extends Component {
@@ -22,29 +25,27 @@ class WorkerSchedule extends Component {
 
 
 
-    onSubmit = (e) => {
+    onSubmit = (name) => {
         this.setState({ 
-            answer: e.target.name
+            answer: name
         });
     }
 
     render() {
         return (
           <Card style={{ borderRadius: "25px" }}>
-            <WorkerNavbar name={this.props.match.params.name}/>
+            <WorkerNavbar name={this.props.match.params.name} />
             <br />
-            <button
-              name="yes"
-              type="button"
-              className="btn btn-info"
-              style={{ alignSelf: "flex-end", marginRight: "15px", backgroundColor:"steelblue" }}
-              onClick={this.onSubmit}
-            >
-              Message a Contractor
-            </button>
+            <Image
+              className="chatImg"
+              src={chatImage}
+              onClick={() => this.onSubmit("yes")}
+            />
             <WorkerApptCard name={this.props.match.params.name} />
             <div style={{ alignSelf: "flex-end", marginRight: "5px" }}>
-              {this.state.answer === "yes" && <Chat name={this.props.match.params.name}/> }
+              {this.state.answer === "yes" && (
+                <Chat name={this.props.match.params.name} />
+              )}
             </div>
           </Card>
         );

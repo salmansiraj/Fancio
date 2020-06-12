@@ -8,15 +8,15 @@ export default class ChatBot extends Component {
     super(props);
 
     this.theme = {
-      background: "#f5f8fb",
-      fontFamily: "Helvetica Neue",
-      headerBgColor: "#3b6597",
+      background: "##6197c0",
+      fontFamily: "Arial",
+      headerBgColor: "#6197c0",
       headerFontColor: "#fff",
       headerFontSize: "15px",
-      botBubbleColor: "#3b6597",
+      botBubbleColor: "#6197c0",
       botFontColor: "#fff",
-      userBubbleColor: "#fff",
-      userFontColor: "#4a4a4a",
+      userBubbleColor: "#6197c0",
+      userFontColor: "#fff",
     };
 
     this.steps = [

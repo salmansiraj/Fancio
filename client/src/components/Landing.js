@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // Assets
 import logo from "../assets/loginlogo.png";
 import work_site from "../assets/work_site.jpg";
+import builder from "../assets/builder.png"
 import { Button } from "reactstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -15,26 +16,36 @@ class Landing extends Component {
       <div class="card-group">
         <div class="card">
           <br />
-          <img
-            src={logo}
-            style={{
-              width: "270px",
-              height: "90px",
-              alignSelf: "center",
-            }}
-            alt=""
-          />
+          <div className="text-center">
+            <img
+              src={logo}
+              style={{
+                width: "270px",
+                height: "90px",
+              }}
+              alt=""
+            />
+            <img
+              src={builder}
+              style={{
+                width: "90px",
+                height: "90px",
+              }}
+              alt=""
+            />
+          </div>
           <br />
           <div class="card-block text-center">
-            <p class="card-text text-muted" style={{ padding: "20px" }}>
+            <p class="card-text text-muted" style={{ padding: "20px", webkitFontSmoothing:"antialiased" }}>
               Fancio connects skilled
               <b style={{ color: "#588498" }}> labor workers </b> to
               <b style={{ color: "#588498" }}> contractors </b>
               <br />
               <br />
               The goal at <b style={{ color: "#588498" }}>Fancio </b> is to
-                bridge a friendly connection, and to provide a <b style={{ color: "#588498" }}> platform tailored  </b>
-                for those struggling in the intensive labor industry
+              bridge a friendly connection, and to provide a{" "}
+              <b style={{ color: "#588498" }}> platform tailored </b>
+              for those struggling in the intensive labor industry
             </p>
             <Button
               type="button"

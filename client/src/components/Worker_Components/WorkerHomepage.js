@@ -4,7 +4,6 @@ import { Card } from 'reactstrap';
 
 
 import WorkerNavbar from "./WorkerNavbar";
-import Profile from "../Profile";
 import ServicesList from "./ServicesList";
 
 class WorkerHomepage extends Component {
