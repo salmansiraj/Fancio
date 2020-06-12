@@ -1,0 +1,36 @@
+{
+  "name": "fancio",
+  "version": "1.0.0",
+  "description": "root package.json",
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "gridfs-stream": "^1.1.1",
+    "mongoose": "^5.9.18",
+    "multer": "^1.4.2",
+    "multer-gridfs-storage": "^4.1.0",
+    "nodemon": "^2.0.4",
+    "twilio": "^3.45.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client",
+    "server": "cd backend && nodemon server",
+    "start": "cd backend && node server",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salmansiraj/Fancio.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/salmansiraj/Fancio/issues"
+  },
+  "homepage": "https://github.com/salmansiraj/Fancio#readme"
+}

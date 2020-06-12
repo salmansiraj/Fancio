@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors')
+const path = require('path')
 
 // Using mongoose to help connect to MongoDB
 const mongoose = require('mongoose')
@@ -31,6 +32,20 @@ const appointmentsRouter = require("./routes/appointments");
 app.use("/users", usersRouter);
 app.use("/services", servicesRouter);
 app.use("/appointments", appointmentsRouter);
+
+const router = require("express").Router()
+
+router.route('/').get((req, res) => {
+    res.json("hello")
+})
+
+if (process.env.NODE_ENV === 'production') { 
+    app.use(express.static(path.join(__dirname, '../client/build')))
+    app.use((req, res) => { 
+        res.sendFile(path.join(__dirname, '../client/build/index.html'))
+    })
+}
+
 
 // Run server 
 app.listen(port, () => { 
