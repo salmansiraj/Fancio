@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import 'firebase/storage'
 
 require("dotenv").config({ path: __dirname+'.env'} )
+
 // Your web app's Firebase configuration
   var firebaseConfig = {
     apiKey: 'AIzaSyCtVqICzE7i7kJSmarv2D7_rUNrzoG0B8k',
