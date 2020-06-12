@@ -16,7 +16,10 @@ router.route("/user").post((req, res) => {
     console.log(req.body.user)
     const currUser = req.body.user;
     Appointment.find({ contractor_username: currUser, accepted: false })
-        .then((appointments) => res.json(appointments))
+        .then((appointments) => {
+            console.log("TEST ---- ", appointments)
+            res.json(appointments)
+        })
         .catch((err) => res.status(400).json("Error: " + err));
 })
 

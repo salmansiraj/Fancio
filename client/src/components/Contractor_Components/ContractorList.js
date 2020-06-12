@@ -12,10 +12,10 @@ import { Card } from 'react-bootstrap'
 const Appointment = props => (
     <tr>
         <td>
-            <Button href="#popup1" value="Result" style={{ backgroundColor: "steelblue"}}
+            <a href="#popup1" value="Result" style={{color: "cadetblue"}}
             >
                 {props.appointment.worker_username}
-            </Button>
+            </a>
             <div id="popup1" class="overlay">
                 <div class="popup">
                     <Card
@@ -104,14 +104,11 @@ export default class WorkersList extends Component {
             .then(res => { 
                 console.log(res.data)
             });
-        
-        this.setState({
-            appointments: this.state.appointments.filter(el => el.accepted === false)
-        })
     }
 
     appointmentList = () => {
         return this.state.appointments.map(currentappointment => {
+
             return <Appointment appointment={currentappointment} deleteAppointment={this.deleteAppointment} acceptAppointment={this.acceptAppointment} key={currentappointment._id} />;
         })
     }
