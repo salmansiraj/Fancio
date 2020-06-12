@@ -19,7 +19,7 @@
 
 
 #### Resources Used
-- Freepik icons @[flaticon.com](https://flaticon.com)
+- Freepik, Skyclick icons @[flaticon.com](https://flaticon.com)
 - Lucas Bassettis: [simple-chatbot-app-plugin](https://lucasbassetti.com.br/react-simple-chatbot/)
 - [Twilio SMS API](https://twilio.com) Documentation Code
 - [GitGuardian](https://gitguardian.com/) for security checks
