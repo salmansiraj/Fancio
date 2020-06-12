@@ -1,10 +1,11 @@
 const router = require("express").Router();
 const twilio = require("twilio");
+require("dotenv").config();
 
 //twilio requirements -- Texting API
 const accountSid = process.env.ACC_SID
 const authToken = process.env.AUTH_TOKEN
-const client = new twilio(accountSid, authToken);
+const client = require("twilio")(accountSid, authToken);
 
 // DB objects 
 let Appointment = require('../models/appointment.model')
