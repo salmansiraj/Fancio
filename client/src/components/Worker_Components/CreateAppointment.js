@@ -125,7 +125,7 @@ export default class CreateAppointment extends Component {
               />
             </div>
             <div className="form-group">
-              <label> Location: </label>
+              <label> Pickup Location: </label>
               <input
                 required
                 type="text"
