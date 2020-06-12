@@ -19,7 +19,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "npm start --prefix client",
-    "server": "cd backend && nodemon server.js",
+    "server": "cd backend && nodemon server",
     "start": "cd backend && node server",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
