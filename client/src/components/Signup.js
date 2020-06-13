@@ -102,6 +102,7 @@ export default class Signup extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    console.log('wtf')
 
     const user = {
       username: this.state.username,
@@ -146,7 +147,7 @@ export default class Signup extends Component {
               <span className="font-weight-bold">
                 <img
                   src={logo}
-                  class="text-center"
+                  className="text-center"
                   width="270"
                   height="90"
                   alt=""
@@ -163,57 +164,60 @@ export default class Signup extends Component {
               </span>
             </h2>
           </div>
-          <br />
-          <Form.Row>
-            <Col>
-              <h6>Username</h6>
-              <Input
-                required
-                type="username"
-                value={this.state.username}
-                onChange={this.onChangeUsername}
-              />
-            </Col>
-            <Col>
-              <h6> Password </h6>
-              <Input
-                required
-                type="password"
-                placeholder="••••••"
-                value={this.state.password}
-                onChange={this.onChangePassword}
-              />
-            </Col>
-          </Form.Row>
-          <br />
 
-          <Form.Row style={{ margin: "10px" }}>
-            <Col style={{ textAlign: "-webkit-center" }}>
-              <h6> Profile Picture </h6>
-              <Image
-                src={this.state.url || this.defaultProfile}
-                roundedCircle
-                style={{
-                  width: "150px",
-                  height: "150px",
-                  marginBottom: "20px",
-                }}
-              />
-              <br />
-              <input type="file" onChange={this.handleProfileChange} />
-              <Button variant="info" onClick={this.handleProfileUpload}>
-                Upload
-              </Button>
-              {this.state.progress > 0 && (
-                <ProgressBar
-                  animated
-                  now={this.state.progress}
-                  style={{ width: "60%", marginTop: "10px" }}
-                  label={`${this.state.progress}%`}
+          <br />
+          
+          <FormGroup>
+            <Form.Row>
+              <Col>
+                <h6>Username</h6>
+                <Input
+                  required
+                  type="username"
+                  value={this.state.username}
+                  onChange={this.onChangeUsername}
                 />
-              )}
-            </Col>
-            <Col>
+              </Col>
+              <Col>
+                <h6> Password </h6>
+                <Input
+                  required
+                  type="password"
+                  placeholder="••••••"
+                  value={this.state.password}
+                  onChange={this.onChangePassword}
+                />
+              </Col>
+            </Form.Row>
+            <br />
+
+            <Form.Row style={{ margin: "10px" }}>
+              <Col style={{ textAlign: "-webkit-center" }}>
+                <h6> Profile Picture </h6>
+                <Image
+                  src={this.state.url || this.defaultProfile}
+                  roundedCircle
+                  style={{
+                    width: "150px",
+                    height: "150px",
+                    marginBottom: "20px",
+                  }}
+                />
+                <br />
+                <input type="file" onChange={this.handleProfileChange} />
+                <Button variant="info" onClick={this.handleProfileUpload}>
+                  Upload
+                </Button>
+                {this.state.progress > 0 && (
+                  <ProgressBar
+                    animated
+                    now={this.state.progress}
+                    style={{ width: "60%", marginTop: "10px" }}
+                    label={`${this.state.progress}%`}
+                  />
+                )}
+              </Col>
+              <Col>
                 <Col>
                   <h6> Bio </h6>
                   <Input
@@ -221,7 +225,7 @@ export default class Signup extends Component {
                     type="textarea"
                     value={this.state.bio}
                     onChange={this.onChangeBio}
-                    style={{ height:"100px"}}
+                    style={{ height: "100px" }}
                   />
                 </Col>
                 <br />
@@ -235,25 +239,26 @@ export default class Signup extends Component {
                     onChange={this.onChangePhoneNumber}
                   />
                 </Col>
-            </Col>
-          </Form.Row>
-          <br />
+              </Col>
+            </Form.Row>
+            <br />
+          </FormGroup>
           <FormGroup>
             <h5 className="text-center" style={{ paddingLeft: "10px" }}>
               {" "}
               Select User Type{" "}
             </h5>
             <fieldset
-              class="form-check text-center"
+              className="form-check text-center"
               onChange={this.onChangeUserType}
             >
               <Label
-                class="form-check-label"
+                className="form-check-label"
                 for="exampleRadios1"
                 style={{ paddingRight: "30px" }}
               >
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   value="Worker"
                   checked={this.state.user_type === "Worker"}
@@ -262,9 +267,9 @@ export default class Signup extends Component {
                 Worker
               </Label>
 
-              <Label class="form-check-label" for="exampleRadios2">
+              <Label className="form-check-label" for="exampleRadios2">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   value="Contractor"
                   style={{ paddingLeft: "30px" }}
@@ -274,22 +279,18 @@ export default class Signup extends Component {
               </Label>
             </fieldset>
           </FormGroup>
-          <div className="form-group">
-            <Button
-              className="btn-lg btn-block"
-              style={{
-                opacity: "1",
-                backgroundColor: "#477884"
-              }}
-            >
-              Signup
-            </Button>
-          </div>
-
-          <div className="text-center pt-3">
-            Or continue with your social account
-          </div>
-
+          <Button
+            className="btn-lg btn-block"
+            style={{
+              opacity: "1",
+              backgroundColor: "#477884",
+            }}
+            onClick={this.onSubmit}
+          >
+            Signup
+          </Button>
+          
+          <br />
           <div className="text-center">
             <span className="p-2"> Already a user? </span>
             <a href="/login"> Login </a>
