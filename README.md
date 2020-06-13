@@ -31,7 +31,7 @@
 ![WorkerWorkflow](https://user-images.githubusercontent.com/34731628/84558538-971c2c80-ad01-11ea-80b3-aa1ee2f7df2d.png)
 
 
-#### Resources Used
+## Resources Used
 - Freepik, Skyclick icons @[flaticon.com](https://flaticon.com)
 - Lucas Bassettis: [simple-chatbot-app-plugin](https://lucasbassetti.com.br/react-simple-chatbot/)
 - [Twilio SMS API](https://twilio.com) Documentation Cod
