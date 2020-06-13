@@ -10,7 +10,7 @@
 
 
 ## Solution 
-   This is why Fanci was developed. Fanci is a web app that **CONNECTS labor workers with contractors** looking for workers to help finish the job. This bridge between workers and contractors allows a *seamless and friendly bridge of connection* and provides both ends to have a *platform that is tailored for them* unlike other services websites (like Fiverr, Upwork, Craigslist) where the target audience is extremely broad and difficult to land a gig.
+   This is why Fancio was developed. Fancio is a web app that **CONNECTS labor workers with contractors** looking for workers to help finish the job. This bridge between workers and contractors allows a *seamless and friendly bridge of connection* and provides both ends to have a *platform that is tailored for them* unlike other services websites (like Fiverr, Upwork, Craigslist) where the target audience is extremely broad and difficult to land a gig.
 
 ## Future Work
    - Work on signup screening process to verify user skills/credentials
