@@ -17,8 +17,15 @@
    - Work on info/progress page for immigrant workers to track progress on legal paperwork
    - Seamless / food buying integration for contractor to buy workers food
 
-## Tech Stack | Design
+## Tech Stack | Design | Workflow
+### Architecture
 <img width="612" alt="fancio_arch" src="https://user-images.githubusercontent.com/34731628/84442586-ee3fd580-ac0b-11ea-9c53-7897b9a35b36.png">
+
+### Contractor Side
+![contractorWorkflow](https://user-images.githubusercontent.com/34731628/84558521-62a87080-ad01-11ea-9d4c-2ab39a2e9f5f.png)
+
+### Labor Worker Side
+![WorkerWorkflow](https://user-images.githubusercontent.com/34731628/84558538-971c2c80-ad01-11ea-80b3-aa1ee2f7df2d.png)
 
 
 #### Resources Used
