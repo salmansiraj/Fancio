@@ -75,7 +75,7 @@ export default class CreateService extends Component {
     axios.post('http://localhost:5000/services/add', service)
       .then(res => console.log(res.data));
 
-    window.location = '/contractorHomepage/' + this.state.username;
+    window.location = '/contractorHomepage/' + this.props.location.pathname.split("/").pop();
   }
 
   render() {
