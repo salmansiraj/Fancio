@@ -30,7 +30,7 @@
 
 ## Running Application 
 - git clone
-- Client Side: https://fancio-app.herokuapp.com/ || cd client, npm install, npm start
+- Client Side: https://fancio-app.herokuapp.com/  **or** cd client, npm install, npm start
 - Backend Side: cd backend, npm install, nodemon server.js
 
 ## Resources Used
