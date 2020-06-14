@@ -29,8 +29,9 @@
 ![WorkerWorkflow](https://user-images.githubusercontent.com/34731628/84558538-971c2c80-ad01-11ea-80b3-aa1ee2f7df2d.png)
 
 ## Running Application 
-- Client Side: https://fancio-app.herokuapp.com/
-- Backend Side: git clone, cd backend, npm install, nodemon server.js
+- git clone
+- Client Side: https://fancio-app.herokuapp.com/ || cd client, npm install, npm start
+- Backend Side: cd backend, npm install, nodemon server.js
 
 ## Resources Used
 - Freepik, Skyclick icons @[flaticon.com](https://flaticon.com)
